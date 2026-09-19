@@ -1,0 +1,44 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>
+        {% block title %}
+            My Home
+        {% endblock %}
+    </title>
+
+    <link rel="stylesheet" href="{% static 'css/base.css' %}">
+
+
+    {% block extra_css %}
+    <link rel="stylesheet" href="{% static 'property/properties_list.css' %}">
+    <link rel="stylesheet" href="{% static 'property/property_details.css' %}">
+    <link rel="stylesheet" href="{% static 'feature/feature_list.css' %}">
+    <link rel="stylesheet" href="{% static 'feature/create-feature.css' %}">
+    <link rel="stylesheet" href="{% static 'feature/edit-feature.css' %}">
+    {% endblock %}
+</head>
+<body>
+<header>
+    <nav>
+        <a>My home</a>
+
+        <div>
+            <a href="{% url 'properties-list' %}">Имоти</a>
+            <a href="{% url 'features-list' %}">Характеристики</a>
+            <a>Брокери</a>
+        </div>
+    </nav>
+</header>
+<main>
+    {% block content %}
+    {% endblock %}
+</main>
+<footer>
+    <p> &copy; My Home 2026</p>
+</footer>
+
+</body>
+</html>

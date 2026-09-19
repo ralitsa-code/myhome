@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+
+
+{% block title %}
+    Имоти | My Home
+{% endblock %}
+
+
+{% block content %}
+    {% if properties %}
+        <div class="properties-container">
+            {% for property in properties %}
+                <article class="property-card">
+                <div class="property-image-list">
+                    No Image
+                </div>
+                <h2 class="property-title"> {{ property.get_property_type_display}}</h2>
+                    <section class="property-header">
+                        <p class="city">гр. {{ property.neighborhood.city }} /&nbsp;</p>
+                        <p class="neighborhood">кв. {{ property.neighborhood }}</p>
+                    </section>
+                        <p class="area">Площ: {{ property.area | floatformat }} кв.м</p>
+                
+                    <div class="property-details">
+                            <div class="bedrooms">
+                                {% if property.bedrooms != None %}
+                                <span>Спални:</span>
+                                {{ property.bedrooms}}
+                                {% endif %}
+                            </div>
+                            <div class="bathrooms">
+                                {% if property.bathrooms != None %}
+                                <span>Бани:</span>
+                                {{ property.bathrooms}}
+                                {% endif %}
+                            </div>
+                    </div>
+                <p class="price">{{ property.price | floatformat}} €</p>
+                <a href="{% url 'property-details' property.id %}" class="see-more-button">Виж повече</a>
+                </article>
+        {% endfor %}
+        </div>
+    {% else %}
+        <h2>Няма имоти</h2>
+    {% endif %}
+{% endblock %}

@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+
+{% block title %}
+    Редактирай характеристика | My Home
+{% endblock %}
+
+{% block content %}
+        <main>
+            <section class="feature-form"> 
+                <div>
+                    <h2>
+                         Редактирай характеристиката, след което запази промените.
+                    </h2>
+                </div>
+                <form method="post" >
+                    {% csrf_token %}
+                    
+                    <div>
+                        {{ form.name }}
+                        {{ form.name.errors}}
+                    </div>
+                    
+                    <button type="submit" class="button" >
+                        Запази промените 
+                    </button>
+                </form>
+                <a href="{% url 'delete-feature' feature_id %}" class="delete-button">
+                    Изтрий
+                </a>
+            </section>
+        </main>
+{% endblock %}

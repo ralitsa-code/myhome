@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+
+{% block title %}
+    Характеристики | My Home
+{% endblock %}
+
+{% block content %}
+        <main>
+            <h2>За да редактирате характеристика кликнете върху нея.</h2>
+            <section class="features-container">
+                {% for feature in features %}
+                    <a href="{% url 'edit-feature' feature.id %}" 
+                       class="feature">
+                    {{ feature.name }}
+                    </a>
+                {% endfor %}
+            </section>
+            <section class="edit-features">
+                <a class="button" href="{% url 'create-feature' %}">Добави характеристика</a>
+            </section>
+        </main>
+{% endblock %}

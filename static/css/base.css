@@ -1,0 +1,35 @@
+* {
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+    font-size: 18px;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #F5F7FA;
+    color: #333333;
+
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 40px;
+    background-color: #1E3A5F;
+}
+
+nav a {
+    margin-left: 20px;
+    color: #F5F7FA;
+    text-decoration: none;
+}
+
+footer {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    color: #cccccc;
+    background-color: #1E3A5F;
+}

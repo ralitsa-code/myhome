@@ -1,0 +1,40 @@
+main {
+    display: flex;
+    flex-direction: column;
+    max-width: 500px;
+}
+
+
+.feature {
+    background-color: #1E3A5F;
+    color: white;
+    border-radius: 15px;
+    padding: 10px 15px;
+    margin: 5px;
+    text-decoration: none;
+    text-align: center;
+}
+
+.button {
+    background-color: #68e368;
+    color: #1E3A5F;
+    border-radius: 15px;
+    padding: 10px 15px;
+    border: 1px solid #1E3A5F;
+    text-decoration: none;
+    display: block;
+    font-size: 14px;
+    text-align: center;
+    font-weight: bold;
+}
+
+.features-container {
+    display: flex;
+    flex-direction: column;
+}
+
+h2 {
+    text-align: center;
+}
+
+

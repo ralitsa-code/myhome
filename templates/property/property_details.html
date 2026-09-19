@@ -1,0 +1,49 @@
+{% extends 'base.html' %} 
+{% load static %}
+
+{% block title %}
+{{ property.get_offer_type_display}}
+    {{ property.get_property_type_display}} 
+    {{ property.neighborhood.city}} 
+    {{ property.neighborhood }}
+    {{ property.price }}
+{% endblock %}
+
+
+{% block content %}
+    <main>
+    <section class="section-left">
+        <div class="property-image">No Image</div>
+        <article class="description">
+            {{ property.description }}
+        </article>
+    </section>
+    <section class="section-right">
+        <article class="features">
+            <h3>{{ property.get_property_type_display}}</h3>
+            <p>{{ property.get_offer_type_display}}</p>
+            <p>Град: {{ property.neighborhood.city.name }} </p>
+            <p>Квартал: {{ property.neighborhood }}</p>
+            <p>Площ: {{ property.area | floatformat}} кв.м</p>
+            <p>Цена: {{ property.price | floatformat}} €</p>
+        
+             {% if property.bedrooms %}
+                 <p>{{ property.bedrooms }} спални</p>
+            {% endif %}
+            
+            {% if property.bathrooms %}
+                 <p>{{ property.bathrooms }} бани</p>
+            {% endif %}
+        
+        </article>
+        <article class="broker-info">
+            <h4>Брокер за контакти</h4>
+            <div class="broker-image">No Image</div>
+            <p>{{ property.broker.first_name}} {{ property.broker.last_name }}</p>
+            <p>{{ property.broker.phone_number }}</p>
+            <p>{{ property.broker.email }}</p>
+        </article>
+    </section>
+    </main>
+
+{% endblock %}

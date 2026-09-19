@@ -1,0 +1,56 @@
+main {
+    max-width: 1000px;
+    margin:0 auto;
+    background-color: #F5F7FA;
+    color: #1E3A5F;
+    display: flex;
+    padding: 1rem 1rem;
+}
+
+.section-left {
+    flex-direction: column;
+    width: 65%;
+    padding: 1rem 1rem;
+    align-items: center;
+    justify-content: center;
+    justify-items: center;
+}
+
+.section-right {
+    flex-direction: column;
+    width: 35%;
+    padding: 1rem 1rem;
+    align-items: center;
+    justify-content: center;
+}
+
+.property-image {
+    width: 34rem;
+    height: 20rem;
+    background-color: #e9ecef;
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #6c757d;
+    font-weight: bold;
+    padding: 1rem 1rem;
+}
+
+.description {
+    padding: 1rem 1rem;
+}
+
+.broker-image {
+    height: 9rem;
+    width: 7rem;
+    background-color: #e9ecef;
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #6c757d;
+    font-weight: bold;
+    padding: 1rem 1rem;
+}
+
