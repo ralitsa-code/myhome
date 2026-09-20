@@ -5,6 +5,11 @@
     Характеристики | My Home
 {% endblock %}
 
+{% block extra_css %}
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'feature/feature_list.css' %}">
+{% endblock %}
+
 {% block content %}
         <main>
             <h2>За да редактирате характеристика кликнете върху нея.</h2>

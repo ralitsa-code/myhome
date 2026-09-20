@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+
+{% block title %}
+    Брокери | My Home
+{% endblock %}
+
+{% block extra_css %}
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'broker/brokers_list.css' %}">
+{% endblock %}
+
+{% block content %}
+    {% if brokers %}
+        <div class="brokers-container">
+            {% for broker in brokers %}
+                <article class="broker-card">
+                <div class="broker-image">
+                    No Image
+                </div >
+                <h2>{{ broker.first_name }} {{ broker.last_name }}</h2>
+                <p><i class="fa-solid fa-phone-volume"></i> {{ broker.phone_number }}</p>
+                <p><i class="fa-solid fa-envelope"></i></i> {{ broker.email}}</p>
+                <p>{{ broker.description}}</p>
+                </article>
+
+            {% endfor %}
+        </div>
+    {% else %}
+        <h2>Няма брокери</h2>
+    {% endif %}
+{% endblock %}

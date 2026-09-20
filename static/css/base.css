@@ -33,3 +33,14 @@ footer {
     color: #cccccc;
     background-color: #1E3A5F;
 }
+
+.button {
+    margin: 20px;
+    font-size: 14px;
+    color: #1E3A5F;
+    border-radius: 15px;
+    background-color: #68e368;
+    padding: 10px 15px;
+    margin: 20px;
+    border: 1px solid #1E3A5F;
+}

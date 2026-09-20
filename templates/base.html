@@ -10,15 +10,14 @@
     </title>
 
     <link rel="stylesheet" href="{% static 'css/base.css' %}">
-
+<link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+>
 
     {% block extra_css %}
-    <link rel="stylesheet" href="{% static 'property/properties_list.css' %}">
-    <link rel="stylesheet" href="{% static 'property/property_details.css' %}">
-    <link rel="stylesheet" href="{% static 'feature/feature_list.css' %}">
-    <link rel="stylesheet" href="{% static 'feature/create-feature.css' %}">
-    <link rel="stylesheet" href="{% static 'feature/edit-feature.css' %}">
     {% endblock %}
+
 </head>
 <body>
 <header>
@@ -28,7 +27,7 @@
         <div>
             <a href="{% url 'properties-list' %}">Имоти</a>
             <a href="{% url 'features-list' %}">Характеристики</a>
-            <a>Брокери</a>
+            <a href="{% url 'brokers-list' %}">Брокери</a>
         </div>
     </nav>
 </header>

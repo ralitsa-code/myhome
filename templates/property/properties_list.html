@@ -5,6 +5,11 @@
     Имоти | My Home
 {% endblock %}
 
+{% block extra_css %}
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'property/properties_list.css' %}">
+{% endblock %}
+
 
 {% block content %}
     {% if properties %}
@@ -13,7 +18,7 @@
                 <article class="property-card">
                 <div class="property-image-list">
                     No Image
-                </div>
+                </div >
                 <h2 class="property-title"> {{ property.get_property_type_display}}</h2>
                     <section class="property-header">
                         <p class="city">гр. {{ property.neighborhood.city }} /&nbsp;</p>
@@ -24,14 +29,13 @@
                     <div class="property-details">
                             <div class="bedrooms">
                                 {% if property.bedrooms != None %}
-                                <span>Спални:</span>
-                                {{ property.bedrooms}}
+                                <p>{{ property.bedrooms}} <i class="fa-solid fa-bed"></i>  |  {{ property.bathrooms}} <i class="fa-solid fa-bath"></i></p>
                                 {% endif %}
                             </div>
                             <div class="bathrooms">
                                 {% if property.bathrooms != None %}
-                                <span>Бани:</span>
-                                {{ property.bathrooms}}
+                                
+                                
                                 {% endif %}
                             </div>
                     </div>

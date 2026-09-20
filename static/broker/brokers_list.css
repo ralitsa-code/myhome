@@ -1,4 +1,4 @@
-.properties-container {
+.brokers-container {
     margin: auto;
     max-width: 1200px;
     display: grid;
@@ -6,10 +6,9 @@
     justify-content: center;
     gap: 20px;
     padding: 20px;
-
 }
 
-.property-card {
+.broker-card {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -20,27 +19,7 @@
     min-height: 300px;
 }
 
-.property-title{
-    font-size: 22px;
-}
-
-.price {
-    font-size: 17px;
-    font-weight: bold;
-    padding-top: 10px;
-    border-top:  3px solid #1E3A5F;
-}
-
-.property-header {
-    display: flex;
-}
-
-.property-details {
-    display: flex;
-    flex-direction: column;
-}
-
-.property-image-list {
+.broker-image {
     height: 180px;
     background-color: #e9ecef;
     border-radius: 5px;
@@ -51,11 +30,6 @@
     font-weight: bold;
 }
 
-.see-more-button {
-    display: inline-block;
-    background-color: #1E3A5F;
-    color: #F5F7FA;
-    padding: 13px 10px;
-    border-radius: 6px;
-    text-decoration: none;
+h2 {
+    text-align: center;
 }

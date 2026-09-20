@@ -9,6 +9,11 @@
     {{ property.price }}
 {% endblock %}
 
+{% block extra_css %}
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'property/property_details.css' %}">
+{% endblock %}
+
 
 {% block content %}
     <main>

@@ -5,6 +5,11 @@
     Създай характеристика | My Home
 {% endblock %}
 
+{% block extra_css %}
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'feature/create-feature.css' %}">
+{% endblock %}
+
 {% block content %}
         <main>
             <section class="feature-form"> 

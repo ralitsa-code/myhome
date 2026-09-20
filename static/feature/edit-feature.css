@@ -1,11 +1,22 @@
+main {
+    margin:0 auto;
+    display: flex;
+    flex-direction: column;
+    max-width: 500px;
+    padding: 20px;
+    justify-content: center;
+    text-align: center;
+}
+
+
 .delete-button {
     background-color: #d22323;
-    color: #ffffff;
+    color: #1E3A5F;
     border-radius: 15px;
     padding: 10px 15px;
     margin: 0;
     border: 1px solid #1E3A5F;
     text-decoration: none;
-    display: block;
+    display: inline-block;
     font-size: 14px;
 }
