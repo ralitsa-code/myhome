@@ -40,7 +40,7 @@
                             </div>
                     </div>
                 <p class="price">{{ property.price | floatformat}} €</p>
-                <a href="{% url 'property-details' property.id %}" class="see-more-button">Виж повече</a>
+                <a href="{% url 'property-details' property.id %}" class="btn">Виж повече</a>
                 </article>
         {% endfor %}
         </div>

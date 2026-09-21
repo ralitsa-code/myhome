@@ -25,4 +25,6 @@ urlpatterns = [
          views.delete_feature,
          name='delete-feature')
 
+
+
 ]

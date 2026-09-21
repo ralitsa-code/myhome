@@ -1,0 +1,70 @@
+{% extends 'base.html' %}
+
+
+{% block title %}
+    Добави брокер | My Home
+{% endblock %}
+
+{% block extra_css %}
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'broker/create-broker.css' %}">
+{% endblock %}
+
+{% block content %}
+        <main>
+            <section class="broker-form">
+                <div>
+                    <p>
+                        Добави данни за новия брокер и натисни бутона Запази
+                    </p>
+                </div>
+                <form method="post" enctype="multipart/form-data">
+                    {% csrf_token %}
+
+                    <div class="form-field">
+                        {{ form.first_name.label_tag }}
+                        {{ form.first_name }}
+                        {{ form.first_name.errors }}
+                    </div>
+
+                    <div class="form-field">
+                        {{ form.last_name.label_tag }}
+                        {{ form.last_name }}
+                        {{ form.last_name.errors }}
+                    </div>
+
+                    <div class="form-field">
+                        {{ form.email.label_tag }}
+                        {{ form.email }}
+                        {{ form.email.errors }}
+                    </div>
+
+                    <div class="form-field">
+                        {{ form.phone_number.label_tag }}
+                        {{ form.phone_number }}
+                        {{ form.phone_number.errors }}
+                    </div>
+
+                    <div class="form-field">
+                        {{ form.description.label_tag }}
+                        {{ form.description }}
+                        {{ form.description.errors }}
+                    </div>
+
+                    <div class="form-field">
+                        {{ form.picture.label_tag }}
+                        {{ form.picture }}
+                        {{ form.picture.errors }}
+                    </div>
+
+                    <button type="submit" class="button" >
+                        Запази
+                    </button>
+                    <a href="{% url 'brokers-list' %}" class="delete-button">
+                        Откажи
+                    </a>
+
+                </form>
+            </section>
+        </main>
+{% endblock %}

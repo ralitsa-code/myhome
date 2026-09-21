@@ -11,17 +11,29 @@
 {% endblock %}
 
 {% block content %}
+    <main>
+    <div class="page-header">
+        <h2>На тази страница ще намерите информация за всички брокери в агенцията</h2>
+        <a class="edit-button" href="{% url 'create-broker' %}">Добави брокер</a>
+    </div>
+
     {% if brokers %}
         <div class="brokers-container">
             {% for broker in brokers %}
                 <article class="broker-card">
-                <div class="broker-image">
+                {% if broker.picture %}
+                    <img src="{{ broker.picture.url }}" >
+                {% else %}
+                    <div class="broker-image">
                     No Image
-                </div >
+                    </div >
+                {% endif %}
+
                 <h2>{{ broker.first_name }} {{ broker.last_name }}</h2>
                 <p><i class="fa-solid fa-phone-volume"></i> {{ broker.phone_number }}</p>
-                <p><i class="fa-solid fa-envelope"></i></i> {{ broker.email}}</p>
+                <p><i class="fa-solid fa-envelope"></i> {{ broker.email}}</p>
                 <p>{{ broker.description}}</p>
+                <a class="btn" href="{% url 'broker-details' broker.id %}">Повече информация</a>
                 </article>
 
             {% endfor %}
@@ -29,4 +41,7 @@
     {% else %}
         <h2>Няма брокери</h2>
     {% endif %}
+
+    </main>
+
 {% endblock %}

@@ -33,3 +33,14 @@
 h2 {
     text-align: center;
 }
+
+.page-header {
+    display: flex;
+    justify-content: space-between;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+}
+

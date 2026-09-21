@@ -1,0 +1,17 @@
+.form-field {
+    display: flex;
+    margin-bottom: 15px;
+}
+
+.form-field label {
+    width: 150px;
+}
+
+.form-field input {
+    display: flex;
+    flex: 1;
+}
+
+p {
+    font-weight: bold;
+}

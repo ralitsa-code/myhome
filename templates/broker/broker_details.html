@@ -1,0 +1,36 @@
+{% extends 'base.html' %} 
+{% load static %}
+
+{% block title %}
+    {{ broker.first_name}} {{ broker.last_name}} | My home
+    
+{% endblock %}
+
+{% block extra_css %}
+    <link rel="stylesheet" href="{% static 'broker/broker_details.css' %}">
+{% endblock %}
+
+
+{% block content %}
+    <main>
+    <section class="section-left">
+        {% if broker.picture %}
+            <img src="{{ broker.picture.url }}" >
+        {% else %}
+            <div class="broker-image">
+                No Image
+            </div >
+        {% endif %}
+    </section>
+    
+    <section class="section-right">
+        <article class="broker-info">
+            <h2>{{ broker.first_name}} {{ broker.last_name }}</h2>
+            <p><i class="fa-solid fa-phone-volume"></i> {{ broker.phone_number }}</p>
+            <p><i class="fa-solid fa-envelope"></i> {{ broker.email}}</p>
+            <p>{{ broker.description }}</p>
+            <a class="edit-button" href="{% url 'edit-broker' broker.id %}">Редактирай информация</a>
+        </article>
+    </section>
+    </main>
+{% endblock %}

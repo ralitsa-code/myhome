@@ -44,3 +44,85 @@ footer {
     margin: 20px;
     border: 1px solid #1E3A5F;
 }
+
+.btn {
+    display: inline-block;
+    background-color: #1E3A5F;
+    color: #F5F7FA;
+    padding: 13px 10px;
+    border-radius: 6px;
+    text-decoration: none;
+}
+
+main {
+    margin: auto;
+    max-width: 1600px;
+    display: flex;
+}
+
+.section-left {
+    flex: 1;
+}
+
+.section-right {
+    flex: 2;
+}
+
+.image {
+    width: 200px;
+    height: 200px;
+    background-color: #e9ecef;
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #6c757d;
+    font-weight: bold;
+    padding: 20px;
+    margin: 20px;
+}
+
+.edit-button {
+    margin: 20px;
+    font-size: 14px;
+    color: #1E3A5F;
+    border-radius: 15px;
+    background-color: #68e368;
+    padding: 10px 15px;
+    margin: 20px;
+    border: 1px solid #1E3A5F;
+}
+
+.delete-button  {
+    background-color: #d22323;
+    color: #1E3A5F;
+    border-radius: 15px;
+    padding: 10px 15px;
+    margin: 0;
+    border: 1px solid #1E3A5F;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 14px;
+}
+
+img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    display: block;
+
+}
+
+.form-field {
+    display: flex;
+    margin-bottom: 15px;
+}
+
+.form-field label {
+    width: 150px;
+}
+
+.form-field input {
+    display: flex;
+    flex: 1;
+}
