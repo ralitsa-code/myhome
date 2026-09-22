@@ -1,5 +1,5 @@
 {% extends 'base.html' %}
-
+{% load phone_format %}
 
 {% block title %}
     Брокери | My Home
@@ -30,9 +30,9 @@
                 {% endif %}
 
                 <h2>{{ broker.first_name }} {{ broker.last_name }}</h2>
-                <p><i class="fa-solid fa-phone-volume"></i> {{ broker.phone_number }}</p>
+                <p><i class="fa-solid fa-phone-volume"></i> {{ broker.phone_number|phone_format }}</p>
                 <p><i class="fa-solid fa-envelope"></i> {{ broker.email}}</p>
-                <p>{{ broker.description}}</p>
+                <p>{{ broker.description | truncatewords:5 }}</p>
                 <a class="btn" href="{% url 'broker-details' broker.id %}">Повече информация</a>
                 </article>
 

@@ -33,20 +33,14 @@
             <p>Цена: {{ property.price | floatformat}} €</p>
         
              {% if property.bedrooms %}
-                 <p>{{ property.bedrooms }} спални</p>
+                 <p>{{ property.bedrooms }} <i class="fa-solid fa-bed"></i></p>
             {% endif %}
             
             {% if property.bathrooms %}
-                 <p>{{ property.bathrooms }} бани</p>
+                 <p>{{ property.bathrooms }} <i class="fa-solid fa-bath"></i></p>
             {% endif %}
+        <a class="edit-button" href="{% url 'broker-details' property.broker.id %}">Брокер: {{ property.broker.first_name}} {{ property.broker.last_name }}</a>
         
-        </article>
-        <article class="broker-info">
-            <h4>Брокер за контакти</h4>
-            <div class="broker-image">No Image</div>
-            <p>{{ property.broker.first_name}} {{ property.broker.last_name }}</p>
-            <p>{{ property.broker.phone_number }}</p>
-            <p>{{ property.broker.email }}</p>
         </article>
     </section>
     </main>

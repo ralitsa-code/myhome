@@ -1,4 +1,6 @@
 {% load static %}
+{%  load current_year %}
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -22,9 +24,13 @@
 <body>
 <header>
     <nav>
-        <a>My home</a>
+        <div class="left">
+            <a href="{% url 'index' %}"><img alt="logo" class="logo" src="{%  static 'images/house.png' %}"></a>
+            <a href="{% url 'index' %}">My home</a>
+        </div>
 
-        <div>
+
+        <div class="right">
             <a href="{% url 'properties-list' %}">Имоти</a>
             <a href="{% url 'features-list' %}">Характеристики</a>
             <a href="{% url 'brokers-list' %}">Брокери</a>
@@ -36,7 +42,7 @@
     {% endblock %}
 </main>
 <footer>
-    <p> &copy; My Home 2026</p>
+    <p> &copy; My Home {% current_year %}</p>
 </footer>
 
 </body>

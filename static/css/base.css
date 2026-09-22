@@ -126,3 +126,14 @@ img {
     display: flex;
     flex: 1;
 }
+.logo {
+    width: 100px;
+    height: auto;
+    object-fit: cover;
+    display: block;
+}
+
+.left {
+    display: flex;
+    align-items: center;
+}

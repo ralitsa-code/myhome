@@ -1,0 +1,52 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    My Home
+{% endblock %}
+
+{% block extra_css %}
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/index.css' %}">
+{% endblock %}
+
+
+
+{% block content %}
+    <main>
+        <section class="welcome">
+            <h1>Добре дошъл в сайта на агенция за недвижими имоти My home.</h1>
+            <p>My home ще ви помогне да откриете подходящия имот според вашите нужди и предпочитания. Разгледайте нашите актуални предложения за продажба и наем и се свържете с нашите брокери за повече информация.</p>
+        </section>
+        <section>
+            {% if properties %}
+                <div class="properties-container">
+                {% for property in properties %}
+                    <article class="property-card">
+                    <div class="property-image-list">
+                        No Image
+                    </div >
+                    <h2 class="property-title"> {{ property.get_property_type_display}}</h2>
+                        <section class="property-header">
+                            <p class="city">гр. {{ property.neighborhood.city }} /&nbsp;</p>
+                            <p class="neighborhood">кв. {{ property.neighborhood }}</p>
+                        </section>
+                            <p class="area">Площ: {{ property.area | floatformat }} кв.м</p>
+
+                        <div class="property-details">
+                                <div class="bedrooms">
+                                    {% if property.bedrooms != None %}
+                                    <p>{{ property.bedrooms}} <i class="fa-solid fa-bed"></i>  |  {{ property.bathrooms}} <i class="fa-solid fa-bath"></i></p>
+                                    {% endif %}
+                                </div>
+                        </div>
+                    <p class="price">{{ property.price | floatformat}} €</p>
+                    <a href="{% url 'property-details' property.id %}" class="btn">Виж повече</a>
+                    </article>
+                    {% endfor %}
+                </div>
+        {% else %}
+            <h2>Няма имоти</h2>
+        {% endif %}
+        </section>
+    </main>
+{% endblock %}

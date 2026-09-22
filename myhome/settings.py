@@ -35,7 +35,8 @@ PROJECT_APPS = [
     'city',
     'neighbourhood',
     'property',
-    'feature'
+    'feature',
+
 ]
 
 INSTALLED_APPS = [

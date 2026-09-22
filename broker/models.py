@@ -1,11 +1,22 @@
 from django.db import models
+from django.core.validators import RegexValidator
+
 
 # Create your models here.
 class Broker(models.Model):
     first_name = models.CharField(max_length=100, verbose_name="Име")
     last_name = models.CharField(max_length=100, verbose_name="Фамилия")
     email = models.EmailField(verbose_name="Имейл")
-    phone_number = models.CharField(max_length=20, verbose_name="Телефон")
+    phone_number = models.CharField(
+        max_length=10,
+        verbose_name="Телефон",
+        validators=[
+            RegexValidator(
+                regex=r'^\d{10}$',
+                message="Моля въведете 10-цифрен номер без интервали",
+            )
+        ]
+    )
     picture = models.ImageField(
         blank=True,
         null=True,

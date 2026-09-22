@@ -1,9 +1,9 @@
 {% extends 'base.html' %} 
 {% load static %}
+{% load phone_format %}
 
 {% block title %}
-    {{ broker.first_name}} {{ broker.last_name}} | My home
-    
+    {{ broker.first_name | lower | capfirst}} {{ broker.last_name | lower | capfirst}} | My home
 {% endblock %}
 
 {% block extra_css %}
@@ -26,8 +26,8 @@
     <section class="section-right">
         <article class="broker-info">
             <h2>{{ broker.first_name}} {{ broker.last_name }}</h2>
-            <p><i class="fa-solid fa-phone-volume"></i> {{ broker.phone_number }}</p>
-            <p><i class="fa-solid fa-envelope"></i> {{ broker.email}}</p>
+            <p><i class="fa-solid fa-phone-volume"></i> {{ broker.phone_number|phone_format }}</p>
+            <p><i class="fa-solid fa-envelope"></i> {{ broker.email }}</p>
             <p>{{ broker.description }}</p>
             <a class="edit-button" href="{% url 'edit-broker' broker.id %}">Редактирай информация</a>
         </article>

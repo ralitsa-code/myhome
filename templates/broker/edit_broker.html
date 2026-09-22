@@ -53,8 +53,8 @@
 
                     <div class="form-field picture">
                         {{ form.picture.label_tag }}
-                        {% if broker.picture %} 
-                            <img src="{{ broker.picture.url }}">
+                        {% if broker.picture %}
+                            <img alt="снимка на брокера" src="{{ broker.picture.url }}">
                         {% endif %}
                         {{ form.picture }}
                         {{ form.picture.errors }}

@@ -32,12 +32,6 @@
                                 <p>{{ property.bedrooms}} <i class="fa-solid fa-bed"></i>  |  {{ property.bathrooms}} <i class="fa-solid fa-bath"></i></p>
                                 {% endif %}
                             </div>
-                            <div class="bathrooms">
-                                {% if property.bathrooms != None %}
-                                
-                                
-                                {% endif %}
-                            </div>
                     </div>
                 <p class="price">{{ property.price | floatformat}} €</p>
                 <a href="{% url 'property-details' property.id %}" class="btn">Виж повече</a>
