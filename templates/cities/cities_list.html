@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    Градове | My Home
+{% endblock %}
+
+{% block extra_css %}
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'cities/cities_list.css' %}">
+{% endblock %}
+
+{% block content %}
+        <main>
+            <h2>За да редактирате град кликнете върху него.</h2>
+            <section class="features-container">
+                {% for city in cities %}
+                    <a href="{% url 'edit-city' city.id %}" class="feature" >
+                    {{ city.name }}
+                    </a>
+                {% endfor %}
+            </section>
+            <section class="edit-features">
+                <a class="button" href="{% url 'create-city' %}">Добави град</a>
+            </section>
+        </main>
+{% endblock %}

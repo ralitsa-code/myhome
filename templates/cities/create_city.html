@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+
+
+{% block title %}
+    Създай град | My Home
+{% endblock %}
+
+{% block extra_css %}
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'cities/create-city.css' %}">
+{% endblock %}
+
+{% block content %}
+        <main>
+            <section class="feature-form"> 
+                <div>
+                    <p>
+                        Добави нов град в празното поле и натисни бутона Запази
+                    </p>
+                </div>
+                <form method="post" >
+                    {% csrf_token %}
+                    
+                    <div>
+                        {{ form.name }}
+                        {{ form.name.errors}}
+                    </div>
+                    
+                    <button type="submit" class="button" >
+                        Запази 
+                    </button>
+                    <a href="{% url 'cities-list' %}" class="cancel-button">
+                        Откажи
+                    </a>
+                    
+                </form>
+            </section>
+        </main>
+{% endblock %}

@@ -25,14 +25,7 @@
                         <p class="neighborhood">кв. {{ property.neighborhood }}</p>
                     </section>
                         <p class="area">Площ: {{ property.area | floatformat }} кв.м</p>
-                
-                    <div class="property-details">
-                            <div class="bedrooms">
-                                {% if property.bedrooms != None %}
-                                <p>{{ property.bedrooms}} <i class="fa-solid fa-bed"></i>  |  {{ property.bathrooms}} <i class="fa-solid fa-bath"></i></p>
-                                {% endif %}
-                            </div>
-                    </div>
+                    
                 <p class="price">{{ property.price | floatformat}} €</p>
                 <a href="{% url 'property-details' property.id %}" class="btn">Виж повече</a>
                 </article>

@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+
+
+{% block title %}
+    Редактирай град | My Home
+{% endblock %}
+
+{% block extra_css %}
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'feature/edit-feature.css' %}">
+{% endblock %}
+
+{% block content %}
+        <main>
+            <section class="feature-form"> 
+                <div>
+                    <h2>
+                         Редактирай градът, след което запази промените.
+                    </h2>
+                </div>
+                <form method="post" >
+                    {% csrf_token %}
+                    
+                    <div>
+                        {{ form.name }}
+                        {{ form.name.errors}}
+                    </div>
+                    
+                    <button type="submit" class="button" >
+                        Запази промените 
+                    </button>
+                </form>
+                <a href="{% url 'delete-city' city.id %}" class="delete-button">
+                    Изтрий
+                </a>
+            </section> 
+        </main>
+{% endblock %}

@@ -14,7 +14,7 @@
 {% block content %}
     <main>
         <section class="welcome">
-            <h1>Добре дошъл в сайта на агенция за недвижими имоти My home.</h1>
+            <h1>Добре дошли в сайта на агенция за недвижими имоти My home.</h1>
             <p>My home ще ви помогне да откриете подходящия имот според вашите нужди и предпочитания. Разгледайте нашите актуални предложения за продажба и наем и се свържете с нашите брокери за повече информация.</p>
         </section>
         <section>
@@ -31,14 +31,6 @@
                             <p class="neighborhood">кв. {{ property.neighborhood }}</p>
                         </section>
                             <p class="area">Площ: {{ property.area | floatformat }} кв.м</p>
-
-                        <div class="property-details">
-                                <div class="bedrooms">
-                                    {% if property.bedrooms != None %}
-                                    <p>{{ property.bedrooms}} <i class="fa-solid fa-bed"></i>  |  {{ property.bathrooms}} <i class="fa-solid fa-bath"></i></p>
-                                    {% endif %}
-                                </div>
-                        </div>
                     <p class="price">{{ property.price | floatformat}} €</p>
                     <a href="{% url 'property-details' property.id %}" class="btn">Виж повече</a>
                     </article>

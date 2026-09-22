@@ -43,6 +43,7 @@ footer {
     padding: 10px 15px;
     margin: 20px;
     border: 1px solid #1E3A5F;
+    text-decoration: none;
 }
 
 .btn {
@@ -137,3 +138,4 @@ img {
     display: flex;
     align-items: center;
 }
+

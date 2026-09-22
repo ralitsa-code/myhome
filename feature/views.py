@@ -50,5 +50,15 @@ def edit_feature(request, feature_id):
 
 def delete_feature(request, feature_id):
     feature = get_object_or_404(Feature, pk=feature_id)
-    feature.delete()
-    return redirect('features-list')
+    if request.method == "POST":
+        feature.delete()
+        return redirect('features-list')
+    else:
+        return render(
+            request,
+            'feature/delete_feature.html',
+            {
+                'feature_id': feature_id,
+                'feature': feature
+            }
+        )

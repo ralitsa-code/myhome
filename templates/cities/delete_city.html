@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    Изтрий град | My Home
+{% endblock %}
+
+{% block extra_css %}
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'feature/delete_feature.css' %}">
+{% endblock %}
+
+{% block content %}
+        <main>
+            <section class="feature-form"> 
+                <div>
+                    <h2>
+                         Наистина ли искате да изтриете този град?
+                    </h2>
+                </div>
+                <form method="post" >
+                    {% csrf_token %}
+                    <a href="{% url 'delete-city' city_id %}" ><button class="delete-button" type="submit" >Да, изтрий</button></a>
+                </form>
+                <a href="{%  url 'cities-list' %}" class="button" > Не изтривай </a>
+            </section>
+        </main>
+{% endblock %}

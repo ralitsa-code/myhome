@@ -32,6 +32,7 @@
 
         <div class="right">
             <a href="{% url 'properties-list' %}">Имоти</a>
+            <a href="{% url 'cities-list' %}">Градове</a>
             <a href="{% url 'features-list' %}">Характеристики</a>
             <a href="{% url 'brokers-list' %}">Брокери</a>
         </div>
@@ -42,7 +43,7 @@
     {% endblock %}
 </main>
 <footer>
-    <p> &copy; My Home {% current_year %}</p>
+    <p> &copy; My home {% current_year %}</p>
 </footer>
 
 </body>

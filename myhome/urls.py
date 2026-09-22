@@ -28,6 +28,7 @@ urlpatterns = [
     path('properties/', include('property.urls')),
     path('features/', include('feature.urls')),
     path('brokers/', include('broker.urls')),
+    path('cities/', include('city.urls')),
 ]
 
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
