@@ -139,3 +139,16 @@ img {
     align-items: center;
 }
 
+input {
+    width: 240px;
+    height: 30px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+
+}
+
+select {
+    width: 240px;
+    height: 30px;
+    border-radius: 5px;
+}

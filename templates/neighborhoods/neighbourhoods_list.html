@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    Квартали | My Home
+{% endblock %}
+
+{% block extra_css %}
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/neighbourhood/neighbourhood_list.css' %}">
+{% endblock %}
+
+{% block content %}
+        <main>
+        
+        <form method="get" class="search-form">
+            <div>
+                    <input
+                    type="text"
+                    id="search"
+                    name="search"
+                    value="{{ search }}"
+                    placeholder="Търси квартал"
+                    >
+            </div>
+        </form>
+            <h2>За да редактирате квартал кликнете върху него.</h2>
+            <section class="features-container">
+                {% for neighbourhood in neighbourhoods %}
+                    <a class="feature" >
+                    {{ neighbourhood.name }} / {{ neighbourhood.city.name }}
+                    </a>
+                {% endfor %}
+            </section>
+            <section class="edit-features">
+                <a class="button" href="{% url 'create-neighbourhood' %}">Добави квартал</a>
+            </section>
+        </main>
+{% endblock %}

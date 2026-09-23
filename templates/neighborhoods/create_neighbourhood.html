@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+
+
+{% block title %}
+    Създай квартал | My Home
+{% endblock %}
+
+{% block extra_css %}
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/neighbourhood/create_neighbourhood.css' %}">
+{% endblock %}
+
+{% block content %}
+        <main>
+            <section class="feature-form">
+                <div>
+                    <p>
+                        Добави нов квартал в празното поле и натисни бутона Запази
+                    </p>
+                </div>
+                <form method="post" >
+                    {% csrf_token %}
+                    
+                    
+
+                    <div>
+                        {{ form.name }}
+                        {{ form.name.errors}}
+                    </div>
+                    
+                     <div>
+                        {{ form.city }}
+                        {{ form.city.errors}}
+                    </div>
+
+                    <button type="submit" class="button" >
+                        Запази
+                    </button>
+                    <a href="{% url 'features-list' %}" class="cancel-button">
+                        Откажи
+                    </a>
+
+                </form>
+            </section>
+        </main>
+{% endblock %}
