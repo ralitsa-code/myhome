@@ -4,11 +4,18 @@ from feature.models import Feature
 
 
 def feature_list(request):
+    search = request.GET.get('search', '').strip()
+
     features = Feature.objects.all()
+    if search:
+        features = features.filter(name__icontains=search)
+
     return render(
         request,
         'feature/feature_list.html',
-        {'features': features}
+        {'features': features,
+         'search': search,
+         }
     )
 
 

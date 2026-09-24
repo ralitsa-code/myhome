@@ -12,6 +12,17 @@
 
 {% block content %}
         <main>
+            <form method="get" class="search-form">
+            <div>
+                    <input
+                    type="text"
+                    id="search"
+                    name="search"
+                    value="{{ search }}"
+                    placeholder="Търси характеристика"
+                    >
+            </div>
+        </form>
             <h2>За да редактирате характеристика кликнете върху нея.</h2>
             <section class="features-container">
                 {% for feature in features %}

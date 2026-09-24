@@ -13,8 +13,18 @@
 {% block content %}
     <main>
     <div class="page-header">
-        <h2>На тази страница ще намерите информация за всички брокери в агенцията</h2>
         <a class="edit-button" href="{% url 'create-broker' %}">Добави брокер</a>
+        <form method="get" class="search-form">
+            <div>
+                    <input
+                    type="text"
+                    id="search"
+                    name="search"
+                    value="{{ search }}"
+                    placeholder="Търси брокер"
+                    >
+            </div>
+        </form>
     </div>
 
     {% if brokers %}

@@ -6,7 +6,12 @@ from broker.models import Broker
 
 # Create your views here.
 def brokers_list(request):
+    search = request.GET.get('search', '').strip()
+
     brokers = Broker.objects.all()
+    if search:
+        brokers = brokers.filter(first_name__icontains=search , last_name__icontains=search)
+
     return render(
         request,
         'broker/brokers_list.html',

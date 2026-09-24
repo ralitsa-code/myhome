@@ -4,7 +4,10 @@ from city.forms import CityForm
 from city.models import City
 
 def cities_list(request):
+    search = request.GET.get('search', '').strip()
     cities = City.objects.all()
+    if search:
+        cities = cities.filter(name__icontains=search)
     return render(
         request,
         'cities/cities_list.html',
