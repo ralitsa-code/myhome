@@ -1,4 +1,5 @@
 from django.shortcuts import render, get_object_or_404, redirect
+from django.db.models import Q
 
 from broker.forms import BrokerForm
 from broker.models import Broker
@@ -10,7 +11,8 @@ def brokers_list(request):
 
     brokers = Broker.objects.all()
     if search:
-        brokers = brokers.filter(first_name__icontains=search , last_name__icontains=search)
+        brokers = brokers.filter(
+            Q(first_name__icontains=search) | Q(last_name__icontains=search))
 
     return render(
         request,
