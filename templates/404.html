@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Грешка 404 | My home
+{% endblock %}
+
+{% block content %}
+    <main class="notfound">
+        <h1>Нещо се обърка.</h1>
+        <h2>Грешка 404 - страницата не е намерена.</h2>
+        <a class="button" href="{% url 'index' %}">Към начална страница</a>
+    </main>
+{% endblock %}

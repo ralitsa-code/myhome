@@ -11,3 +11,4 @@ def index(request):
         'index.html',
         {'properties': properties}
     )
+

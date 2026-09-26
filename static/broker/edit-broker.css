@@ -14,8 +14,20 @@ main {
     display: block;
     margin-bottom: 10px;
     margin-right: 20px;
+
 }
 
 p {
     font-weight: bold;
+}
+
+.picture {
+    width: 100%;
+    align-items: center;
+}
+
+input[type='file']{
+    margin-bottom: 0;
+    padding: 0;
+    border-radius: 0;
 }
