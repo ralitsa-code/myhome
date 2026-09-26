@@ -10,7 +10,6 @@
 {% endblock %}
 
 
-
 {% block content %}
     <main>
         <section class="welcome">
@@ -22,9 +21,14 @@
                 <div class="properties-container">
                 {% for property in properties %}
                     <article class="property-card">
-                    <div class="property-image-list">
-                        No Image
-                    </div >
+                    {% if property.main_image %}
+                        <img src="{{ property.main_image.url }}" >
+                    {% else %}
+                        <div class="property-image-list">
+                                    No Image
+                                </div >
+                    {% endif %}
+
                     <h2 class="property-title"> {{ property.get_property_type_display}}</h2>
                         <section class="property-header">
                             <p class="city">гр. {{ property.neighborhood.city }} /&nbsp;</p>

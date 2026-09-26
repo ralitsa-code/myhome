@@ -2,21 +2,21 @@
 
 
 {% block title %}
-    Създай квартал | My Home
+    Редактирай квартал | My Home
 {% endblock %}
 
 {% block extra_css %}
     {% load static %}
-    <link rel="stylesheet" href="{% static 'css/neighbourhood/create_neighbourhood.css' %}">
+    <link rel="stylesheet" href="{% static 'feature/edit-feature.css' %}">
 {% endblock %}
 
 {% block content %}
         <main>
-            <section class="feature-form">
+            <section class="feature-form"> 
                 <div>
-                    <p>
-                        Добави нов квартал в празното поле и натисни бутона Запази
-                    </p>
+                    <h2>
+                         Редактирай кварталът, след което запази промените.
+                    </h2>
                 </div>
                 <form method="post" >
                     {% csrf_token %}
@@ -30,15 +30,14 @@
                         {{ form.city }}
                         {{ form.city.errors}}
                     </div>
-
+                    
                     <button type="submit" class="button" >
-                        Запази
+                        Запази промените 
                     </button>
-                    <a href="{% url 'neighbourhood-list' %}" class="cancel-button">
-                        Откажи
-                    </a>
-
                 </form>
-            </section>
+                <a href="{% url 'delete-neighbourhood' neighbourhood.id %}" class="delete-button">
+                    Изтрий
+                </a>
+            </section> 
         </main>
 {% endblock %}

@@ -51,7 +51,7 @@ def edit_broker(request, broker_id):
         form = BrokerForm(request.POST, request.FILES, instance=broker)
         if form.is_valid():
             form.save()
-            return redirect('brokers-list')
+            return redirect('broker-details', broker_id=broker.id)
     else:
         form = BrokerForm(instance=broker)
 

@@ -11,5 +11,10 @@ urlpatterns = [
         '<int:property_id>/',
         views.property_details,
         name='property-details'
+    ),
+    path(
+        'create/',
+        views.create_property,
+        name='create-property'
     )
 ]

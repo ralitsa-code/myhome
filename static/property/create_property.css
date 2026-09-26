@@ -20,3 +20,7 @@ input[type='file']{
     padding: 0;
     border-radius: 0;
 }
+
+.form-field.features select {
+    height: 200px;
+}

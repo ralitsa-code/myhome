@@ -18,7 +18,13 @@
 {% block content %}
     <main>
     <section class="section-left">
-        <div class="property-image">No Image</div>
+        {% if property.main_image %}
+            <img src="{{ property.main_image.url }}" >
+        {% else %}
+            <div class="broker-image">
+                No Image
+            </div >
+        {% endif %}
         <article class="description">
             {{ property.description }}
         </article>

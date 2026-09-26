@@ -1,10 +1,106 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+{% extends 'base.html' %}
 
-</body>
-</html>
+
+{% block title %}
+    Добави имот | My Home
+{% endblock %}
+
+{% block extra_css %}
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'property/create_property.css' %}">
+{% endblock %}
+
+{% block content %}
+        <main>
+            <section class="broker-form">
+                <div>
+                    <p>
+                        Добави данни за новия имот и натисни бутона Запази
+                    </p>
+                </div>
+                <form method="post" enctype="multipart/form-data">
+                    {% csrf_token %}
+
+                    <div class="form-field">
+                        {{ form.property_type.label_tag }}
+                        {{ form.property_type }}
+                        {{ form.property_type.errors }}
+                    </div>
+
+                    <div class="form-field">
+                        {{ form.offer_type.label_tag }}
+                        {{ form.offer_type }}
+                        {{ form.offer_type.errors }}
+                    </div>
+
+                    <div class="form-field">
+                        {{ form.area.label_tag }}
+                        {{ form.area }}
+                        {{ form.area.errors }}
+                    </div>
+
+                    <div class="form-field">
+                        {{ form.price.label_tag }}
+                        {{ form.price }}
+                        {{ form.price.errors }}
+                    </div>
+
+                    <div class="form-field">
+                        {{ form.neighborhood.label_tag }}
+                        {{ form.neighborhood }}
+                        {{ form.neighborhood.errors }}
+                    </div>
+
+                    <div class="form-field">
+                        {{ form.address.label_tag }}
+                        {{ form.address }}
+                        {{ form.address.errors }}
+                    </div>
+
+                    <div class="form-field">
+                        {{ form.bedrooms.label_tag }}
+                        {{ form.bedrooms }}
+                        {{ form.bedrooms.errors }}
+                    </div>
+
+                    <div class="form-field">
+                        {{ form.bathrooms.label_tag }}
+                        {{ form.bathrooms }}
+                        {{ form.bathrooms.errors }}
+                    </div>
+
+                    <div class="form-field">
+                        {{ form.description.label_tag }}
+                        {{ form.description }}
+                        {{ form.description.errors }}
+                    </div>
+
+                    <div class="form-field">
+                        {{ form.broker.label_tag }}
+                        {{ form.broker }}
+                        {{ form.broker.errors }}
+                    </div>
+
+                    <div class="form-field features">
+                        {{ form.features.label_tag }}
+                        {{ form.features }}
+                        {{ form.features.errors }}
+                    </div>
+
+                     <div class="form-field">
+                        {{ form.main_image.label_tag }}
+                        {{ form.main_image }}
+                        {{ form.main_image.errors }}
+                    </div>
+
+                    <button type="submit" class="button" >
+                        Запази
+                    </button>
+                    <a href="{% url 'brokers-list' %}" class="delete-button">
+                        Откажи
+                    </a>
+
+                </form>
+            </section>
+        </main>
+{% endblock %}

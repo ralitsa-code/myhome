@@ -22,30 +22,11 @@
 
 </head>
 <body>
-<header>
-    <nav>
-        <div class="left">
-            <a href="{% url 'index' %}"><img alt="logo" class="logo" src="{%  static 'images/house.png' %}"></a>
-            <a href="{% url 'index' %}">My home</a>
-        </div>
-
-
-        <div class="right">
-            <a href="{% url 'properties-list' %}">Имоти</a>
-            <a href="{% url 'cities-list' %}">Градове</a>
-            <a href="{% url 'neighbourhood-list' %}">Квартали</a>
-            <a href="{% url 'features-list' %}">Характеристики</a>
-            <a href="{% url 'brokers-list' %}">Брокери</a>
-        </div>
-    </nav>
-</header>
+{% include 'partials/header.html' %}
 <main>
     {% block content %}
     {% endblock %}
 </main>
-<footer>
-    <p> &copy; My home {% current_year %}</p>
-</footer>
-
+{% include 'partials/footer.html' %}
 </body>
 </html>

@@ -12,14 +12,22 @@
 
 
 {% block content %}
-    {% if properties %}
-        <div class="properties-container">
-            {% for property in properties %}
-                <article class="property-card">
-                <div class="property-image-list">
-                    No Image
-                </div >
-                <h2 class="property-title"> {{ property.get_property_type_display}}</h2>
+    <main>
+        <div class="page-header">
+            <a class="edit-button" href="{% url 'create-property' %}">Добави имот</a>
+        </div>
+        {% if properties %}
+            <div class="properties-container">
+                {% for property in properties %}
+                    <article class="property-card">
+                    {% if property.main_image %}
+                        <img src="{{ property.main_image.url }}" >
+                    {% else %}
+                        <div class="property-image-list">
+                                    No Image
+                                </div >
+                    {% endif %}
+                    <h2 class="property-title"> {{ property.get_property_type_display}}</h2>
                     <section class="property-header">
                         <p class="city">гр. {{ property.neighborhood.city }} /&nbsp;</p>
                         <p class="neighborhood">кв. {{ property.neighborhood }}</p>
@@ -29,9 +37,11 @@
                 <p class="price">{{ property.price | floatformat}} €</p>
                 <a href="{% url 'property-details' property.id %}" class="btn">Виж повече</a>
                 </article>
-        {% endfor %}
-        </div>
-    {% else %}
-        <h2>Няма имоти</h2>
-    {% endif %}
+                {% endfor %}
+            </div>
+        {% else %}
+            <h2>Няма имоти</h2>
+        {% endif %}
+    </main>
+    
 {% endblock %}

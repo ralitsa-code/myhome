@@ -22,22 +22,30 @@ class Property(models.Model):
         max_length=20,
         choices=OfferType,
         default=OfferType.FOR_SALE,
+        verbose_name="Тип оферта"
     )
 
     property_type = models.CharField(
         max_length=20,
         choices=PropertyType,
-        default=PropertyType.APARTMENT
+        default=PropertyType.APARTMENT,
+        verbose_name="Тип имот"
     )
 
-    area = models.DecimalField(max_digits=10, decimal_places=2)
-    price = models.DecimalField(max_digits=10,decimal_places=2)
+    area = models.DecimalField(max_digits=10, decimal_places=2, verbose_name="Площ")
+    price = models.DecimalField(max_digits=10, decimal_places=2, verbose_name="Цена")
 
-    neighborhood = models.ForeignKey(Neighbourhood, on_delete=models.CASCADE)
-    address = models.CharField(max_length=200)
-    bedrooms = models.IntegerField(null=True, blank=True)
-    bathrooms = models.IntegerField(null=True, blank=True)
-    description = models.TextField()
+    neighborhood = models.ForeignKey(Neighbourhood, on_delete=models.CASCADE, verbose_name="Квартал")
+    address = models.CharField(max_length=200, verbose_name="Адрес")
+    bedrooms = models.IntegerField(null=True, blank=True, verbose_name="Спални")
+    bathrooms = models.IntegerField(null=True, blank=True, verbose_name="Бани")
+    description = models.TextField(verbose_name="Описание")
+
+    main_image = models.ImageField(
+        upload_to='properties/',
+        verbose_name="Снимка",
+        null=True,
+        blank=True)
 
     broker = models.ForeignKey(
         Broker,
@@ -45,12 +53,13 @@ class Property(models.Model):
         null=True,
         blank=True,
         related_name="properties",
+        verbose_name="Брокер",
     )
 
-    created_at = models.DateTimeField(auto_now_add=True)
-    active = models.BooleanField(default=True)
+    created_at = models.DateTimeField(auto_now_add=True, verbose_name="Дата на създаване")
+    active = models.BooleanField(default=True, verbose_name="Активен")
 
-    features = models.ManyToManyField(Feature, blank=True, related_name="properties")
+    features = models.ManyToManyField(Feature, blank=True, related_name="properties", verbose_name="Характеристики")
 
     def __str__(self):
-        return f'{self.property_type} {self.neighborhood} {self.price}'
+        return f'{self.get_property_type_display()} {self.neighborhood} {self.price}'

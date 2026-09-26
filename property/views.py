@@ -1,5 +1,6 @@
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, get_object_or_404, redirect
 
+from property.forms import PropertyForm
 from property.models import Property
 
 
@@ -26,4 +27,20 @@ def property_details(request, property_id):
         request,
         'property/property_details.html',
         {'property': real_estate}
+    )
+
+def create_property(request):
+    if request.method == 'POST':
+        form = PropertyForm(request.POST, request.FILES)
+
+        if form.is_valid():
+            form.save()
+            return redirect('properties-list')
+    else:
+        form = PropertyForm()
+
+    return render(
+        request,
+        'property/create_property.html',
+        {'form': form}
     )
