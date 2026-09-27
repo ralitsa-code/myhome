@@ -18,9 +18,11 @@ class PropertyForm(forms.ModelForm):
                   "broker",
                   "features",
                   "main_image",
-
+                  "active",
                   ]
 
         widgets = {
             "main_image": FileInput(),
+            "active": forms.CheckboxInput(attrs={"disabled": True}),
         }
+

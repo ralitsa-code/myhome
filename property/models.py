@@ -2,6 +2,7 @@ from django.db import models
 from broker.models import Broker
 from feature.models import Feature
 from neighbourhood.models import Neighbourhood
+from django.core.validators import MaxValueValidator, MinValueValidator
 
 
 class Property(models.Model):
@@ -32,8 +33,19 @@ class Property(models.Model):
         verbose_name="Тип имот"
     )
 
-    area = models.DecimalField(max_digits=10, decimal_places=2, verbose_name="Площ")
-    price = models.DecimalField(max_digits=10, decimal_places=2, verbose_name="Цена")
+    area = models.DecimalField(
+        max_digits=10,
+        decimal_places=2,
+        verbose_name="Площ",
+        validators=[MaxValueValidator(10000), MinValueValidator(10)],
+    )
+
+    price = models.DecimalField(
+        max_digits=10,
+        decimal_places=2,
+        verbose_name="Цена",
+        validators=[MaxValueValidator(10000000), MinValueValidator(10)],
+    )
 
     neighborhood = models.ForeignKey(Neighbourhood, on_delete=models.CASCADE, verbose_name="Квартал")
     address = models.CharField(max_length=200, verbose_name="Адрес")

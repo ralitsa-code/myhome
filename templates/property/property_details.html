@@ -37,7 +37,7 @@
             <p>Квартал: {{ property.neighborhood.name }}</p>
             <p>Площ: {{ property.area | floatformat}} кв.м</p>
             <p>Цена: {{ property.price | floatformat}} €</p>
-            <p>Дата на създаване: {{ property.created_at | date:'d-M-Y'}} </p>
+            <p>Дата на създаване: {{ property.created_at|date:"d-M-Y" }} </p>
             {% if property.active %}
                 <p>Активен</p>
             {% else %}

@@ -87,6 +87,12 @@
                         {{ form.features.errors }}
                     </div>
 
+                    <div class="form-field">
+                        {{ form.active.label_tag }}
+                        {{ form.active }}
+                        {{ form.active.errors }}
+                    </div>
+
                      <div class="form-field">
                         {{ form.main_image.label_tag }}
                          {% if property.main_image %}
