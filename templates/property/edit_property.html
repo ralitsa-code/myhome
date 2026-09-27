@@ -1,0 +1,110 @@
+{% extends 'base.html' %}
+
+
+{% block title %}
+    Редактирай имот | My Home
+{% endblock %}
+
+{% block extra_css %}
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'property/edit_property.css' %}">
+{% endblock %}
+
+{% block content %}
+        <main>
+            <section>
+                <div>
+                    <p>
+                        Редактирай данните и натисни бутона Запази
+                    </p>
+                </div>
+                <form method="post" enctype="multipart/form-data">
+                    {% csrf_token %}
+
+                     <div class="form-field">
+                        {{ form.property_type.label_tag }}
+                        {{ form.property_type }}
+                        {{ form.property_type.errors }}
+                    </div>
+
+                    <div class="form-field">
+                        {{ form.offer_type.label_tag }}
+                        {{ form.offer_type }}
+                        {{ form.offer_type.errors }}
+                    </div>
+
+                    <div class="form-field">
+                        {{ form.area.label_tag }}
+                        {{ form.area }}
+                        {{ form.area.errors }}
+                    </div>
+
+                    <div class="form-field">
+                        {{ form.price.label_tag }}
+                        {{ form.price }}
+                        {{ form.price.errors }}
+                    </div>
+
+                    <div class="form-field">
+                        {{ form.neighborhood.label_tag }}
+                        {{ form.neighborhood }}
+                        {{ form.neighborhood.errors }}
+                    </div>
+
+                    <div class="form-field">
+                        {{ form.address.label_tag }}
+                        {{ form.address }}
+                        {{ form.address.errors }}
+                    </div>
+
+                    <div class="form-field">
+                        {{ form.bedrooms.label_tag }}
+                        {{ form.bedrooms }}
+                        {{ form.bedrooms.errors }}
+                    </div>
+
+                    <div class="form-field">
+                        {{ form.bathrooms.label_tag }}
+                        {{ form.bathrooms }}
+                        {{ form.bathrooms.errors }}
+                    </div>
+
+                    <div class="form-field">
+                        {{ form.description.label_tag }}
+                        {{ form.description }}
+                        {{ form.description.errors }}
+                    </div>
+
+                    <div class="form-field">
+                        {{ form.broker.label_tag }}
+                        {{ form.broker }}
+                        {{ form.broker.errors }}
+                    </div>
+
+                    <div class="form-field features">
+                        {{ form.features.label_tag }}
+                        {{ form.features }}
+                        {{ form.features.errors }}
+                    </div>
+
+                     <div class="form-field">
+                        {{ form.main_image.label_tag }}
+                         {% if property.main_image %}
+                             <img class="picture" alt="Снимка на имот" src="{{ property.main_image.url }}">
+                         {% endif %}
+                        {{ form.main_image }}
+                        {{ form.main_image.errors }}
+                    </div>
+
+                    <button type="submit" class="button" >
+                        Запази
+                    </button>
+                    <a href="{% url 'delete-property' property.id %}" class="delete-button">
+                    Изтрий
+                </a>
+
+                </form>
+                
+            </section>
+        </main>
+{% endblock %}

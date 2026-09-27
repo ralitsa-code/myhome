@@ -1,4 +1,6 @@
 from django import forms
+from django.forms import FileInput
+
 from .models import Property
 
 class PropertyForm(forms.ModelForm):
@@ -16,4 +18,9 @@ class PropertyForm(forms.ModelForm):
                   "broker",
                   "features",
                   "main_image",
+
                   ]
+
+        widgets = {
+            "main_image": FileInput(),
+        }

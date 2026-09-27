@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    Изтрий имот | My Home
+{% endblock %}
+
+{% block extra_css %}
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'property/delete_property.css' %}">
+{% endblock %}
+
+{% block content %}
+        <main>
+            <section> 
+                <div>
+                    <h2>
+                         Наистина ли искате да изтриете този имот?
+                    </h2>
+                </div>
+                <form method="post" >
+                    {% csrf_token %}
+                    <a href="{% url 'delete-property' property.id %}" ><button class="delete-button" type="submit" >Да, изтрий</button></a>
+                </form>
+                <a href="{%  url 'properties-list' %}" class="button" > Не изтривай </a>
+            </section>
+        </main>
+{% endblock %}

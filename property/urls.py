@@ -16,5 +16,14 @@ urlpatterns = [
         'create/',
         views.create_property,
         name='create-property'
+    ),
+    path(
+        '<int:property_id>/edit/',
+        views.edit_property,
+        name='edit-property'),
+    path(
+        '<int:property_id>/delete/',
+        views.delete_property,
+        name='delete-property'
     )
 ]

@@ -34,10 +34,17 @@
             <h3>{{ property.get_property_type_display}}</h3>
             <p>{{ property.get_offer_type_display}}</p>
             <p>Град: {{ property.neighborhood.city.name }} </p>
-            <p>Квартал: {{ property.neighborhood }}</p>
+            <p>Квартал: {{ property.neighborhood.name }}</p>
             <p>Площ: {{ property.area | floatformat}} кв.м</p>
             <p>Цена: {{ property.price | floatformat}} €</p>
-        
+            <p>Дата на създаване: {{ property.created_at | date:'d-M-Y'}} </p>
+            {% if property.active %}
+                <p>Активен</p>
+            {% else %}
+                <p>Неактивен</p>
+            {% endif %}
+
+
              {% if property.bedrooms %}
                  <p>{{ property.bedrooms }} <i class="fa-solid fa-bed"></i></p>
             {% endif %}
@@ -46,6 +53,7 @@
                  <p>{{ property.bathrooms }} <i class="fa-solid fa-bath"></i></p>
             {% endif %}
         <a class="edit-button" href="{% url 'broker-details' property.broker.id %}">Брокер: {{ property.broker.first_name}} {{ property.broker.last_name }}</a>
+        <a class="edit-button" href="{% url 'edit-property' property.id %}">Редактирай имот</a>
         
         </article>
     </section>

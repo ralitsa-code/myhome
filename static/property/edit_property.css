@@ -6,8 +6,11 @@ main {
 }
 
 form {
-    margin-bottom: 15px;
-    margin-top: 10px;
+    padding: 20px;
+}
+
+p {
+    font-weight: bold;
 }
 
 .picture img {
@@ -21,17 +24,28 @@ form {
 
 }
 
-p {
-    font-weight: bold;
-}
-
 .picture {
-    width: 100%;
-    align-items: center;
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 8px;
+    display: block;
+    margin-bottom: 10px;
+    margin-right: 20px;
 }
 
 input[type='file']{
     margin-bottom: 0;
     padding: 0;
     border-radius: 0;
+}
+
+select {
+    width: 350px;
+    height: 30px;
+    border-radius: 5px;
+}
+
+.features select {
+    height: 200px;
 }

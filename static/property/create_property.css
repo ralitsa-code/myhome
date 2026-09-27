@@ -1,3 +1,14 @@
+main {
+    display: flex;
+    flex-direction: column;
+    max-width: 1200px;
+    text-align: center;
+}
+
+form {
+    padding: 20px;
+}
+
 .form-field {
     display: flex;
     margin-bottom: 15px;
@@ -23,4 +34,10 @@ input[type='file']{
 
 .form-field.features select {
     height: 200px;
+}
+
+select {
+    width: 350px;
+    height: 30px;
+    border-radius: 5px;
 }

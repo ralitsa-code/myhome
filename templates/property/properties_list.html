@@ -15,6 +15,17 @@
     <main>
         <div class="page-header">
             <a class="edit-button" href="{% url 'create-property' %}">Добави имот</a>
+            <form method="get" class="search-form">
+            <div>
+                    <input
+                    type="text"
+                    id="search"
+                    name="search"
+                    value="{{ search }}"
+                    placeholder="Търси по град"
+                    >
+            </div>
+        </form>
         </div>
         {% if properties %}
             <div class="properties-container">
