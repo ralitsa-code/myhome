@@ -11,17 +11,7 @@
 
 {% block content %}
         <main>
-            <form method="get" class="search-form">
-            <div>
-                    <input
-                    type="text"
-                    id="search"
-                    name="search"
-                    value="{{ search }}"
-                    placeholder="Търси град"
-                    >
-            </div>
-        </form>
+            {% include 'search_form.html' %}
             <h2>За да редактирате град кликнете върху него.</h2>
             <section class="features-container">
                 {% for city in cities %}

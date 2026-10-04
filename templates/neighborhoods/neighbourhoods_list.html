@@ -11,18 +11,7 @@
 
 {% block content %}
         <main>
-        
-        <form method="get" class="search-form">
-            <div>
-                    <input
-                    type="text"
-                    id="search"
-                    name="search"
-                    value="{{ search }}"
-                    placeholder="Търси квартал"
-                    >
-            </div>
-        </form>
+        {% include 'search_form.html' %}
             <h2>За да редактирате квартал кликнете върху него.</h2>
             <section class="features-container">
                 {% for neighbourhood in neighbourhoods %}

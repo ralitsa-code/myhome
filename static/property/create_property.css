@@ -41,3 +41,18 @@ select {
     height: 30px;
     border-radius: 5px;
 }
+
+label{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+#id_features {
+    width: 250px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-end;
+}
+

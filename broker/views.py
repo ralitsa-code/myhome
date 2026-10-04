@@ -5,7 +5,6 @@ from broker.forms import BrokerForm
 from broker.models import Broker
 
 
-# Create your views here.
 def brokers_list(request):
     search = request.GET.get('search', '').strip()
 

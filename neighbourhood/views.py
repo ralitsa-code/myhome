@@ -1,23 +1,24 @@
 from django.shortcuts import render, redirect, get_object_or_404
 
+from myhome.forms import SearchForm
 from neighbourhood.forms import NeighbourhoodForm
 from neighbourhood.models import Neighbourhood
 
 
 def neighbourhood_list(request):
-    search = request.GET.get('search', '').strip()
-
+    form = SearchForm(request.GET or None)
     neighbourhoods = Neighbourhood.objects.all()
 
-    if search:
-        neighbourhoods = neighbourhoods.filter(name__icontains=search)
-
+    if request.method == "GET":
+        if form.is_valid():
+            query = form.cleaned_data['query']
+            neighbourhoods = Neighbourhood.objects.filter(name__icontains=query)
 
     return render(
         request,
         'neighborhoods/neighbourhoods_list.html',
         {'neighbourhoods': neighbourhoods,
-         'search': search,
+         'form': form,
          }
     )
 

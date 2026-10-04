@@ -18,8 +18,9 @@
                     </h2>
                 </div>
                 <form method="post" >
+                    {{ form }}
                     {% csrf_token %}
-                    <a href="{% url 'delete-feature' feature_id %}" ><button class="delete-button" type="submit" >Да, изтрий</button></a>
+                    <button class="delete-button">Да, изтрий</button>
                 </form>
                 <a href="{%  url 'features-list' %}" class="button" > Не изтривай </a>
             </section>

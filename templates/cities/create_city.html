@@ -19,12 +19,9 @@
                     </p>
                 </div>
                 <form method="post" >
+                    {{ form }}
                     {% csrf_token %}
                     
-                    <div>
-                        {{ form.name }}
-                        {{ form.name.errors}}
-                    </div>
                     
                     <button type="submit" class="button" >
                         Запази 

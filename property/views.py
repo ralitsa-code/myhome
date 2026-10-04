@@ -1,3 +1,4 @@
+from django.forms import modelform_factory
 from django.shortcuts import render, get_object_or_404, redirect
 
 from property.forms import PropertyForm
@@ -7,7 +8,7 @@ from property.models import Property
 def properties_list(request):
     search = request.GET.get('search', '').strip()
 
-    properties = Property.objects.all()
+    properties = Property.objects.filter(active=True)
     if search:
         properties = properties.filter(neighborhood__city__name__icontains=search)
 
@@ -53,6 +54,24 @@ def create_property(request):
 
 def edit_property(request, property_id):
     property = get_object_or_404(Property, id=property_id)
+
+
+    if request.user.is_staff:
+        PropertyForm = modelform_factory(Property, fields=("__all__"))
+    else:
+        PropertyForm = modelform_factory(Property, fields=(
+            'offer_type',
+            'property_type',
+            'area',
+            'price',
+            'bedrooms',
+            'bathrooms',
+            'neighborhood',
+            'address',
+            'description',
+            'features',
+            'main_image',
+            ))
 
     if request.method == 'POST':
         form = PropertyForm(request.POST, request.FILES, instance=property)

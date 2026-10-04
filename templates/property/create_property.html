@@ -19,6 +19,7 @@
                     </p>
                 </div>
                 <form method="post" enctype="multipart/form-data">
+                    
                     {% csrf_token %}
 
                     <div class="form-field">
@@ -69,7 +70,7 @@
                         {{ form.bathrooms.errors }}
                     </div>
 
-                    <div class="form-field">
+                    <div class="form-field features">
                         {{ form.description.label_tag }}
                         {{ form.description }}
                         {{ form.description.errors }}

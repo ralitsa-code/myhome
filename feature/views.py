@@ -1,33 +1,37 @@
 from django.shortcuts import render, redirect, get_object_or_404
-from feature.forms import FeatureForm
+from feature.forms import CreateFeatureForm, UpdateFeatureForm, DeleteFeatureForm
 from feature.models import Feature
+from myhome.forms import SearchForm
 
 
 def feature_list(request):
-    search = request.GET.get('search', '').strip()
-
+    form = SearchForm(request.GET or None)
     features = Feature.objects.all()
-    if search:
-        features = features.filter(name__icontains=search)
+
+    if request.method == "GET":
+        if form.is_valid():
+            query = form.cleaned_data['query']
+            features = Feature.objects.filter(name__icontains=query)
+
 
     return render(
         request,
         'feature/feature_list.html',
         {'features': features,
-         'search': search,
+         'form': form,
          }
     )
 
 
 def create_feature(request):
     if request.method == "POST":
-        form = FeatureForm(request.POST)
+        form = CreateFeatureForm(request.POST)
         if form.is_valid():
             form.save()
 
             return redirect('features-list')
     else:
-        form = FeatureForm()
+        form = CreateFeatureForm()
 
     return render(
         request,
@@ -39,12 +43,12 @@ def edit_feature(request, feature_id):
     feature = get_object_or_404(Feature, pk=feature_id)
 
     if request.method == "POST":
-        form = FeatureForm(request.POST, instance=feature)
+        form = UpdateFeatureForm(request.POST, instance=feature)
         if form.is_valid():
             form.save()
             return redirect('features-list')
     else:
-        form = FeatureForm(instance=feature)
+        form = UpdateFeatureForm(instance=feature)
 
     return render(
         request,
@@ -57,15 +61,16 @@ def edit_feature(request, feature_id):
 
 def delete_feature(request, feature_id):
     feature = get_object_or_404(Feature, pk=feature_id)
+    form = DeleteFeatureForm(instance=feature)
+
     if request.method == "POST":
         feature.delete()
         return redirect('features-list')
-    else:
-        return render(
-            request,
-            'feature/delete_feature.html',
-            {
-                'feature_id': feature_id,
-                'feature': feature
-            }
-        )
+
+    return render(
+        request,
+        'feature/delete_feature.html',
+        {
+            'form': form,
+        }
+    )

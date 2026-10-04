@@ -10,4 +10,5 @@ class BrokerForm(forms.ModelForm):
 
         widgets = {
             "picture": FileInput(),
+            "description": forms.Textarea()
         }

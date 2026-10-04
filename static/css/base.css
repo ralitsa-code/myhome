@@ -168,3 +168,31 @@ h2 {
     flex-direction: column;
     text-align: center;
 }
+
+.search-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    right: 105px;
+    top: 17px;
+
+}
+
+.non-border {
+    border: none;
+    background: transparent;
+}
+
+.search-button svg {
+    margin-left: 5px;
+
+}
+
+.div-search {
+    position: relative;
+}
+
+

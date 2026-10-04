@@ -33,7 +33,7 @@
                     <h2 class="property-title"> {{ property.get_property_type_display}}</h2>
                         <section class="property-header">
                             <p class="city">гр. {{ property.neighborhood.city }} /&nbsp;</p>
-                            <p class="neighborhood">кв. {{ property.neighborhood }}</p>
+                            <p class="neighborhood">кв. {{ property.neighborhood.name }}</p>
                         </section>
                             <p class="area">Площ: {{ property.area | floatformat }} кв.м</p>
                     <p class="price">{{ property.price | floatformat}} €</p>
