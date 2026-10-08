@@ -55,24 +55,6 @@ def create_property(request):
 def edit_property(request, property_id):
     property = get_object_or_404(Property, id=property_id)
 
-
-    if request.user.is_staff:
-        PropertyForm = modelform_factory(Property, fields=("__all__"))
-    else:
-        PropertyForm = modelform_factory(Property, fields=(
-            'offer_type',
-            'property_type',
-            'area',
-            'price',
-            'bedrooms',
-            'bathrooms',
-            'neighborhood',
-            'address',
-            'description',
-            'features',
-            'main_image',
-            ))
-
     if request.method == 'POST':
         form = PropertyForm(request.POST, request.FILES, instance=property)
         if form.is_valid():

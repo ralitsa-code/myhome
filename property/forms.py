@@ -9,21 +9,14 @@ class PropertyForm(forms.ModelForm):
         queryset=Feature.objects.all(),
         widget=forms.CheckboxSelectMultiple,
         required=False,
+        label="Характеристики",
+
     )
+
     class Meta:
         model = Property
-        fields = ["offer_type",
-                  "property_type",
-                  "area",
-                  "price",
-                  "neighborhood",
-                  "address",
-                  "bedrooms",
-                  "bathrooms",
-                  "description",
-                  "broker",
-                  "features",
-                  "main_image",
+        fields = ["offer_type", "property_type", "area", "price", "neighborhood", "address",
+                  "bedrooms", "bathrooms", "description", "broker", "features", "main_image",
                   "active",
                   ]
 
