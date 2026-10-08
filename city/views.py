@@ -10,11 +10,9 @@ def cities_list(request):
     form = SearchForm(request.GET or None)
     cities = City.objects.all()
 
-    if request.method == "GET":
-        if form.is_valid():
-            query = form.cleaned_data['query']
-            cities = City.objects.filter(name__icontains=query)
-
+    if form.is_valid():
+        query = form.cleaned_data['query']
+        cities = City.objects.filter(name__icontains=query)
 
     return render(
         request,

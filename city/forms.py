@@ -8,12 +8,6 @@ class CityBaseForm(forms.ModelForm):
         model = City
         fields = ["name"]
 
-class CreateCityForm(forms.Form):
-    name = forms.CharField(
-        max_length=50,
-        required=True,
-        label="Име"
-    )
 
 class CityCreateForm(CityBaseForm):
     ...
