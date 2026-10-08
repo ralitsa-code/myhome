@@ -69,7 +69,7 @@ class Property(models.Model):
     )
 
     created_at = models.DateTimeField(auto_now_add=True, verbose_name="Дата на създаване")
-    active = models.BooleanField(default=True, verbose_name="Активен")
+    active = models.BooleanField(default=True, verbose_name="Активна оферта")
 
     features = models.ManyToManyField(Feature, blank=True, related_name="properties", verbose_name="Характеристики")
 

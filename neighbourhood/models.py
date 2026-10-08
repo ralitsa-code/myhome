@@ -8,5 +8,13 @@ class Neighbourhood(models.Model):
     city = models.ForeignKey(City, on_delete=models.CASCADE, related_name='neighbourhoods', verbose_name="Град")
 
 
+    class Meta:
+        constraints = [
+            models.UniqueConstraint(
+                fields=['city', 'name'],
+                name='unique_neighbourhood_per_city',
+            )
+        ]
+
     def __str__(self):
         return f"{self.name} - {self.city}"
