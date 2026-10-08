@@ -7,8 +7,7 @@ main {
     text-align: center;
 }
 
-
-.feature {
+.list-item {
     background-color: #1E3A5F;
     color: white;
     border-radius: 15px;
@@ -18,27 +17,8 @@ main {
     text-align: center;
 }
 
-.button {
-    background-color: #68e368;
-    color: #1E3A5F;
-    border-radius: 15px;
-    padding: 10px 15px;
-    border: 1px solid #1E3A5F;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 14px;
-    text-align: center;
-    font-weight: bold;
-}
-
-.features-container {
+.list-container {
     display: flex;
     flex-direction: column;
 }
-
-h2 {
-    text-align: center;
-}
-
-
 
