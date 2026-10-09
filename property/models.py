@@ -4,6 +4,8 @@ from feature.models import Feature
 from neighbourhood.models import Neighbourhood
 from django.core.validators import MaxValueValidator, MinValueValidator
 
+from myhome.validators import ImageSizeValidator, ImageTypeValidator
+
 
 class Property(models.Model):
     class PropertyType(models.TextChoices):
@@ -57,7 +59,12 @@ class Property(models.Model):
         upload_to='properties/',
         verbose_name="Снимка",
         null=True,
-        blank=True)
+        blank=True,
+        validators=[
+            ImageSizeValidator("Размерът на снимката трябва да е по-малък от 1MB."),
+            ImageTypeValidator("Форматът на снимката трябва да е jpg, jpeg или png.")
+        ]
+    )
 
     broker = models.ForeignKey(
         Broker,

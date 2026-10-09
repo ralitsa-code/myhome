@@ -1,6 +1,8 @@
 from django.db import models
 from django.core.validators import RegexValidator
 
+from myhome.validators import ImageSizeValidator, ImageTypeValidator
+
 
 # Create your models here.
 class Broker(models.Model):
@@ -22,6 +24,10 @@ class Broker(models.Model):
         null=True,
         verbose_name="Снимка",
         upload_to="brokers/",
+        validators=[
+            ImageSizeValidator("Размерът на снимката трябва да е по-малък от 1MB."),
+            ImageTypeValidator("Форматът на снимката трябва да е jpg, jpeg или png.")
+        ]
     )
     description = models.TextField(verbose_name="Биография")
 
