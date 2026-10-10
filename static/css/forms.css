@@ -1,5 +1,5 @@
 .form-container {
-    max-width: 700px;
+    max-width: 800px;
     margin: 30px auto;
     padding: 30px;
     background-color: #ffffff;
@@ -49,4 +49,15 @@ input[type="file"] {
     padding: 0;
     flex: none;
     accent-color: #1E3A5F;
+}
+
+#id_main_image_error li,
+#id_picture_error li,
+body > main > main > section > form > div:nth-child(5) > ul > li {
+    color: #bd0404;
+    list-style-type: none;
+    background-color: #eecdcd;
+    border-radius: 8px;
+    padding: 10px 15px;
+    border: 1px solid #e00f35;;
 }

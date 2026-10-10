@@ -1,3 +1,4 @@
+
 from django import forms
 from django.forms import FileInput
 
@@ -12,6 +13,16 @@ class PropertyForm(forms.ModelForm):
         label="Характеристики",
 
     )
+
+    def clean(self):
+        PRICE_PER_SQUARE = 100
+        cleaned_data = super().clean()
+        price = cleaned_data.get("price")
+        area = cleaned_data.get("area")
+        if price and area:
+            if price < area * PRICE_PER_SQUARE:
+                raise forms.ValidationError("Цената е прекалено ниска, спрямо площта.")
+        return cleaned_data
 
     class Meta:
         model = Property

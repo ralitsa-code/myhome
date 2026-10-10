@@ -8,11 +8,12 @@
 {% block extra_css %}
     {% load static %}
     <link rel="stylesheet" href="{% static 'property/create_property.css' %}">
+    <link rel="stylesheet" href="{% static 'css/forms.css' %}">
 {% endblock %}
 
 {% block content %}
-        <main>
-            <section class="broker-form">
+        <main class="form-container">
+            <section>
                 <div>
                     <p>
                         Добави данни за новия имот и натисни бутона Запази
@@ -44,6 +45,7 @@
                         {{ form.price.label_tag }}
                         {{ form.price }}
                         {{ form.price.errors }}
+                        {{ form.non_field_errors }}
                     </div>
 
                     <div class="form-field">
@@ -70,7 +72,7 @@
                         {{ form.bathrooms.errors }}
                     </div>
 
-                    <div class="form-field features">
+                    <div class="form-field">
                         {{ form.description.label_tag }}
                         {{ form.description }}
                         {{ form.description.errors }}

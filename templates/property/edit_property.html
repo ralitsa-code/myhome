@@ -8,10 +8,11 @@
 {% block extra_css %}
     {% load static %}
     <link rel="stylesheet" href="{% static 'property/edit_property.css' %}">
+    <link rel="stylesheet" href="{% static 'css/forms.css' %}">
 {% endblock %}
 
 {% block content %}
-        <main>
+        <main class="form-container">
             <section>
                 <div>
                     <p>
@@ -43,6 +44,7 @@
                         {{ form.price.label_tag }}
                         {{ form.price }}
                         {{ form.price.errors }}
+                        {{ form.non_field_errors }}
                     </div>
 
                     <div class="form-field">
@@ -93,7 +95,7 @@
                         {{ form.active.errors }}
                     </div>
 
-                     <div class="form-field">
+                     <div class="form-field ">
                         {{ form.main_image.label_tag }}
                          {% if property.main_image %}
                              <img class="picture" alt="Снимка на имот" src="{{ property.main_image.url }}">
@@ -105,7 +107,7 @@
                     <button type="submit" class="button" >
                         Запази
                     </button>
-                    
+
 
                 </form>
                 
