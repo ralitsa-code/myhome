@@ -6,16 +6,16 @@
 
 {% block extra_css %}
     {% load static %}
-    <link rel="stylesheet" href="{% static 'cities/cities_list.css' %}">
+    <link rel="stylesheet" href="{% static 'css/list.css' %}">
 {% endblock %}
 
 {% block content %}
         <main>
             {% include 'search_form.html' %}
-            <h2>За да редактирате град кликнете върху него.</h2>
-            <section class="features-container">
+            <h3>За да редактирате град кликнете върху него.</h3>
+            <section class="list-container">
                 {% for city in cities %}
-                    <a href="{% url 'edit-city' city.id %}" class="feature" >
+                    <a href="{% url 'edit-city' city.id %}" class="list-item" >
                     {{ city.name }}
                     </a>
                 {% endfor %}

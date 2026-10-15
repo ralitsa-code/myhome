@@ -7,6 +7,7 @@
 
 {% block extra_css %}
     {% load static %}
+    <link rel="stylesheet" href="{% static 'css/error_message.css' %}">
     <link rel="stylesheet" href="{% static 'css/neighbourhood/create_neighbourhood.css' %}">
 {% endblock %}
 
@@ -15,29 +16,26 @@
             <section class="feature-form">
                 <div>
                     <p>
-                        Добави нов квартал в празното поле и натисни бутона Запази
+                        Добави нов квартал в празното поле, избери град от падащото меню и натисни бутона Запази
                     </p>
                 </div>
                 <form method="post" >
                     {% csrf_token %}
-
                     <div>
                         {{ form.name }}
                         {{ form.name.errors}}
                     </div>
-
                      <div>
                         {{ form.city }}
                         {{ form.city.errors}}
                     </div>
-
+                    {{ form.non_field_errors }}
                     <button type="submit" class="button" >
                         Запази
                     </button>
                     <a href="{% url 'neighbourhood-list' %}" class="cancel-button">
                         Откажи
                     </a>
-
                 </form>
             </section>
         </main>

@@ -7,14 +7,14 @@
 
 {% block extra_css %}
     {% load static %}
-    <link rel="stylesheet" href="{% static 'property/properties_list.css' %}">
+    <link rel="stylesheet" href="{% static 'css/property/properties_list.css' %}">
 {% endblock %}
 
 
 {% block content %}
     <main>
         <div class="page-header">
-            <a class="edit-button" href="{% url 'create-property' %}">Добави имот</a>
+            <a class="action-button" href="{% url 'create-property' %}">Добави имот</a>
             <form method="get" class="search-form">
             <div>
                     <input
@@ -39,11 +39,9 @@
                                 </div >
                     {% endif %}
                     <h2 class="property-title"> {{ property.get_property_type_display}}</h2>
-                    <section class="property-header">
-                        <p class="city">гр. {{ property.neighborhood.city }} /&nbsp;</p>
-                        <p class="neighborhood">кв. {{ property.neighborhood.name }}</p>
-                    </section>
-                        <p class="area">Площ: {{ property.area | floatformat }} кв.м</p>
+                    <p class="city">гр. {{ property.neighborhood.city }} </p>
+                    <p class="neighborhood">кв. {{ property.neighborhood.name }}</p>
+                    <p class="area">Площ: {{ property.area | floatformat }} кв.м</p>
                     
                 <p class="price">{{ property.price | floatformat}} €</p>
                 <a href="{% url 'property-details' property.id %}" class="btn">Виж повече</a>

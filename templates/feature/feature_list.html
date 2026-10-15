@@ -7,17 +7,17 @@
 
 {% block extra_css %}
     {% load static %}
-    <link rel="stylesheet" href="{% static 'feature/feature_list.css' %}">
+    <link rel="stylesheet" href="{% static 'css/list.css' %}">
 {% endblock %}
 
 {% block content %}
         <main>
             {% include 'search_form.html' %}
-            <h2>За да редактирате характеристика кликнете върху нея.</h2>
-            <section class="features-container">
+            <h3>За да редактирате характеристика кликнете върху нея.</h3>
+            <section class="list-container">
                 {% for feature in features %}
                     <a href="{% url 'edit-feature' feature.id %}" 
-                       class="feature">
+                       class="list-item">
                     {{ feature.name }}
                     </a>
                 {% endfor %}

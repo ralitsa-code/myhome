@@ -7,7 +7,7 @@
 
 {% block extra_css %}
     {% load static %}
-    <link rel="stylesheet" href="{% static 'property/edit_property.css' %}">
+    <link rel="stylesheet" href="{% static 'css/property/edit_property.css' %}">
     <link rel="stylesheet" href="{% static 'css/forms.css' %}">
 {% endblock %}
 
@@ -19,40 +19,34 @@
                         Редактирай данните и натисни бутона Запази
                     </p>
                 </div>
-                <form method="post" enctype="multipart/form-data">
+                <form method="post" novalidate enctype="multipart/form-data">
                     {% csrf_token %}
-
                      <div class="form-field">
                         {{ form.property_type.label_tag }}
                         {{ form.property_type }}
                         {{ form.property_type.errors }}
                     </div>
-
                     <div class="form-field">
                         {{ form.offer_type.label_tag }}
                         {{ form.offer_type }}
                         {{ form.offer_type.errors }}
                     </div>
-
                     <div class="form-field">
                         {{ form.area.label_tag }}
                         {{ form.area }}
                         {{ form.area.errors }}
                     </div>
-
                     <div class="form-field">
                         {{ form.price.label_tag }}
                         {{ form.price }}
                         {{ form.price.errors }}
                         {{ form.non_field_errors }}
                     </div>
-
                     <div class="form-field">
                         {{ form.neighborhood.label_tag }}
                         {{ form.neighborhood }}
                         {{ form.neighborhood.errors }}
                     </div>
-
                     <div class="form-field">
                         {{ form.address.label_tag }}
                         {{ form.address }}
@@ -103,14 +97,9 @@
                         {{ form.main_image }}
                         {{ form.main_image.errors }}
                     </div>
-
-                    <button type="submit" class="button" >
-                        Запази
-                    </button>
-
-
+                        <button type="submit" class="button" >Запази</button>
+                        <a href="{% url 'properties-list' %}" class="delete-button">Откажи</a>
                 </form>
-                
             </section>
         </main>
 {% endblock %}

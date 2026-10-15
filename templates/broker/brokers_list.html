@@ -7,13 +7,13 @@
 
 {% block extra_css %}
     {% load static %}
-    <link rel="stylesheet" href="{% static 'broker/brokers_list.css' %}">
+    <link rel="stylesheet" href="{% static 'css/broker/brokers_list.css' %}">
 {% endblock %}
 
 {% block content %}
     <main>
     <div class="page-header">
-        <a class="edit-button" href="{% url 'create-broker' %}">Добави брокер</a>
+        <a class="action-button" href="{% url 'create-broker' %}">Добави брокер</a>
         <form method="get" class="search-form">
             <div>
                     <input
@@ -21,7 +21,7 @@
                     id="search"
                     name="search"
                     value="{{ search }}"
-                    placeholder="Търси брокер"
+                    placeholder="Търси брокер по име"
                     >
             </div>
         </form>
@@ -39,10 +39,9 @@
                     </div >
                 {% endif %}
 
-                <h2>{{ broker.first_name }} {{ broker.last_name }}</h2>
+                <h3>{{ broker.first_name }} {{ broker.last_name }}</h3>
                 <p><i class="fa-solid fa-phone-volume"></i> {{ broker.phone_number|phone_format }}</p>
                 <p><i class="fa-solid fa-envelope"></i> {{ broker.email}}</p>
-                <p>{{ broker.description | truncatewords:5 }}</p>
                 <a class="btn" href="{% url 'broker-details' broker.id %}">Повече информация</a>
                 </article>
 

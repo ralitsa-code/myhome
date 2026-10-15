@@ -7,11 +7,12 @@
 
 {% block extra_css %}
     {% load static %}
-    <link rel="stylesheet" href="{% static 'broker/create-broker.css' %}">
+    <link rel="stylesheet" href="{% static 'css/forms.css' %}">
+    <link rel="stylesheet" href="{% static 'css/broker/create_broker.css' %}">
 {% endblock %}
 
 {% block content %}
-        <main>
+        <main class="form-container">
             <section>
                 <div>
                     <p>
@@ -56,14 +57,14 @@
                         {{ form.picture }}
                         {{ form.picture.errors }}
                     </div>
-
-                    <button type="submit" class="button" >
+                    <section class="section-buttons">
+                        <button type="submit" class="button" >
                         Запази
                     </button>
                     <a href="{% url 'brokers-list' %}" class="delete-button">
                         Откажи
                     </a>
-
+                    </section>
                 </form>
             </section>
         </main>

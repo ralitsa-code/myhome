@@ -11,7 +11,7 @@
 
 {% block extra_css %}
     {% load static %}
-    <link rel="stylesheet" href="{% static 'property/property_details.css' %}">
+    <link rel="stylesheet" href="{% static 'css/property/property_details.css' %}">
 {% endblock %}
 
 
@@ -51,9 +51,9 @@
                 {% endfor %}
             {% endif %}
             {% if property.broker %}
-                <a class="edit-button" href="{% url 'broker-details' property.broker.id %}">Брокер: {{ property.broker.first_name}} {{ property.broker.last_name }}</a>
+                <a class="broker-info-button" href="{% url 'broker-details' property.broker.id %}">Брокер: {{ property.broker.first_name}} {{ property.broker.last_name }}</a>
             {% endif %}
-        <a class="edit-button" href="{% url 'edit-property' property.id %}">Редактирай имот</a>
+        <a class="action-button" href="{% url 'edit-property' property.id %}">Редактирай имот</a>
         <a class="delete-button" href="{% url 'delete-property' property.id %}" >Изтрий имот</a>
         </article>
     </section>

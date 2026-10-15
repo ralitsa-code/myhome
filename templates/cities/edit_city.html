@@ -8,15 +8,16 @@
 {% block extra_css %}
     {% load static %}
     <link rel="stylesheet" href="{% static 'css/crud.css' %}">
+    <link rel="stylesheet" href="{% static 'css/error_message.css' %}">
 {% endblock %}
 
 {% block content %}
         <main>
-            <section class="feature-form"> 
+            <section class="feature-form">
                 <div>
-                    <h2>
+                    <h3>
                          Редактирай градът, след което запази промените.
-                    </h2>
+                    </h3>
                 </div>
                 <form method="post" >
                     {% csrf_token %}
