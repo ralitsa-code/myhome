@@ -13,7 +13,7 @@ class Neighbourhood(models.Model):
             models.UniqueConstraint(
                 fields=['city', 'name'],
                 name='unique_neighbourhood_per_city',
-                violation_error_message= '! Упс, този квартал вече е добавен.',
+                violation_error_message= '! Този квартал вече е добавен.',
             )
         ]
 

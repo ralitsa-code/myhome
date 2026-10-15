@@ -21,6 +21,11 @@ urlpatterns = [
         '<int:broker_id>/edit/',
         views.edit_broker,
         name='edit-broker'
+    ),
+    path (
+        '<int:broker_id>/delete/',
+        views.delete_broker,
+        name='delete-broker'
     )
 ]
 

@@ -1,6 +1,8 @@
 from django.forms import FileInput
 
 from django import forms
+
+from myhome.mixins import DisabledFormMixin
 from .models import Broker
 
 class BrokerForm(forms.ModelForm):
@@ -12,3 +14,7 @@ class BrokerForm(forms.ModelForm):
             "picture": FileInput(),
             "description": forms.Textarea()
         }
+
+
+class DeleteBrokerForm(DisabledFormMixin, BrokerForm):
+    ...

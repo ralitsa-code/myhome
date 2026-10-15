@@ -1,4 +1,6 @@
 from django import forms
+
+from myhome.mixins import DisabledFormMixin
 from .models import Neighbourhood
 
 class NeighbourhoodForm(forms.ModelForm):
@@ -8,10 +10,11 @@ class NeighbourhoodForm(forms.ModelForm):
 
 
 
-
-
 class CreateNeighbourhoodForm(forms.Form):
     name = forms.CharField(
         max_length=100,
     )
     city = forms.CharField()
+
+class DeleteNeighbourhoodForm(DisabledFormMixin, NeighbourhoodForm):
+    ...

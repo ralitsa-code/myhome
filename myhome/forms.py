@@ -6,4 +6,5 @@ class SearchForm(forms.Form):
         label='',
         required=False,
         max_length=100,
+
     )

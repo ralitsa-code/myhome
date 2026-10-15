@@ -1,7 +1,7 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from django.db.models import Q
 
-from broker.forms import BrokerForm
+from broker.forms import BrokerForm, DeleteBrokerForm
 from broker.models import Broker
 
 
@@ -59,5 +59,21 @@ def edit_broker(request, broker_id):
         'broker/edit_broker.html',
         {'form': form,
         'broker': broker
+        }
+    )
+
+def delete_broker(request, broker_id):
+    broker = get_object_or_404(Broker, id=broker_id)
+    form = DeleteBrokerForm(instance=broker)
+
+    if request.method == "POST":
+        broker.delete()
+        return redirect('brokers-list')
+
+    return render(
+        request,
+        'broker/delete_broker.html',
+        {
+            'form': form
         }
     )

@@ -1,5 +1,7 @@
 from django.shortcuts import render, redirect, get_object_or_404
-from feature.forms import CreateFeatureForm, UpdateFeatureForm, DeleteFeatureForm
+from django.urls import reverse_lazy
+from django.views.generic import CreateView, UpdateView
+from feature.forms import CreateFeatureForm, DeleteFeatureForm
 from feature.models import Feature
 from myhome.forms import SearchForm
 
@@ -22,42 +24,21 @@ def feature_list(request):
          }
     )
 
+class CreateFeature(CreateView):
+    template_name = 'feature/create_feature.html'
+    form_class = CreateFeatureForm
+    success_url = reverse_lazy('features-list')
 
-def create_feature(request):
-    if request.method == "POST":
-        form = CreateFeatureForm(request.POST)
-        if form.is_valid():
-            form.save()
 
-            return redirect('features-list')
-    else:
-        form = CreateFeatureForm()
 
-    return render(
-        request,
-        'feature/create_feature.html',
-        {'form': form}
-    )
+class EditFeatureView(UpdateView):
+    model = Feature
+    template_name = 'feature/edit_feature.html'
+    success_url = reverse_lazy('features-list')
+    fields = ['name',]
 
-def edit_feature(request, feature_id):
-    feature = get_object_or_404(Feature, pk=feature_id)
 
-    if request.method == "POST":
-        form = UpdateFeatureForm(request.POST, instance=feature)
-        if form.is_valid():
-            form.save()
-            return redirect('features-list')
-    else:
-        form = UpdateFeatureForm(instance=feature)
 
-    return render(
-        request,
-        'feature/edit_feature.html',
-        {
-            'form': form,
-            'feature_id': feature_id
-        }
-    )
 
 def delete_feature(request, feature_id):
     feature = get_object_or_404(Feature, pk=feature_id)

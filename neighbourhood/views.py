@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect, get_object_or_404
 
 from myhome.forms import SearchForm
-from neighbourhood.forms import NeighbourhoodForm
+from neighbourhood.forms import NeighbourhoodForm, DeleteNeighbourhoodForm
 from neighbourhood.models import Neighbourhood
 
 
@@ -59,6 +59,7 @@ def edit_neighbourhood(request, neighbourhood_id):
 
 def delete_neighbourhood(request, neighbourhood_id):
     neighbourhood = get_object_or_404(Neighbourhood, pk=neighbourhood_id)
+    form = DeleteNeighbourhoodForm(instance=neighbourhood)
 
     if request.method == "POST":
         neighbourhood.delete()
@@ -68,6 +69,7 @@ def delete_neighbourhood(request, neighbourhood_id):
             request,
             'neighborhoods/delete_neighbourhood.html',
             {'neighbourhood': neighbourhood,
-             'neighbourhood_id': neighbourhood_id
+             'neighbourhood_id': neighbourhood_id,
+             'form': form,
              }
         )

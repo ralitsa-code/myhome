@@ -14,12 +14,12 @@ urlpatterns = [
 
     path(
         'create/',
-        views.create_feature,
+        views.CreateFeature.as_view(),
         name='create-feature'
     ),
     path(
-        '<int:feature_id>/edit/',
-        views.edit_feature,
+        '<int:pk>/edit/',
+        views.EditFeatureView.as_view(),
         name='edit-feature'
     ),
 

@@ -1,7 +1,7 @@
 from django.forms import modelform_factory
 from django.shortcuts import render, get_object_or_404, redirect
 
-from property.forms import PropertyForm
+from property.forms import PropertyForm, DeletePropertyForm
 from property.models import Property
 
 
@@ -73,6 +73,7 @@ def edit_property(request, property_id):
 
 def delete_property(request, property_id):
     property = get_object_or_404(Property, id=property_id)
+    form = DeletePropertyForm(instance=property)
 
     if request.method == 'POST':
         property.delete()
@@ -81,6 +82,8 @@ def delete_property(request, property_id):
     return render(
         request,
         'property/delete_property.html',
-        {'property': property}
+        {'form': form,
+         'property': property
+         }
         )
 
