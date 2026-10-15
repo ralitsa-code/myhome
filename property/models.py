@@ -51,8 +51,25 @@ class Property(models.Model):
 
     neighborhood = models.ForeignKey(Neighbourhood, on_delete=models.CASCADE, verbose_name="Квартал")
     address = models.CharField(max_length=200, verbose_name="Адрес")
-    bedrooms = models.IntegerField(null=True, blank=True, verbose_name="Спални")
-    bathrooms = models.IntegerField(null=True, blank=True, verbose_name="Бани")
+
+    bedrooms = models.IntegerField(
+        null=True,
+        blank=True,
+        verbose_name="Спални",
+        validators=[
+            MinValueValidator(0),
+        ],
+    )
+
+    bathrooms = models.IntegerField(
+        null=True,
+        blank=True,
+        verbose_name="Бани",
+        validators=[
+            MinValueValidator(0),
+        ],
+    )
+
     description = models.TextField(verbose_name="Описание")
 
     main_image = models.ImageField(
@@ -61,8 +78,8 @@ class Property(models.Model):
         null=True,
         blank=True,
         validators=[
-            ImageSizeValidator("Размерът на снимката трябва да е по-малък от 1MB."),
-            ImageTypeValidator("Форматът на снимката трябва да е jpg, jpeg или png.")
+            ImageSizeValidator("! Размерът на снимката трябва да е по-малък от 1MB."),
+            ImageTypeValidator("! Форматът на снимката трябва да е jpg, jpeg или png.")
         ]
     )
 

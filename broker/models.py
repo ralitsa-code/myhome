@@ -15,7 +15,7 @@ class Broker(models.Model):
         validators=[
             RegexValidator(
                 regex=r'^\d{10}$',
-                message="Моля въведете 10-цифрен номер без интервали",
+                message="! Телефонът трябва да е 10-цифрен номер без интервали.",
             )
         ]
     )
@@ -25,8 +25,8 @@ class Broker(models.Model):
         verbose_name="Снимка",
         upload_to="brokers/",
         validators=[
-            ImageSizeValidator("Размерът на снимката трябва да е по-малък от 1MB."),
-            ImageTypeValidator("Форматът на снимката трябва да е jpg, jpeg или png.")
+            ImageSizeValidator("! Размерът на снимката трябва да е по-малък от 1MB."),
+            ImageTypeValidator("! Форматът на снимката трябва да е jpg, jpeg или png.")
         ]
     )
     description = models.TextField(verbose_name="Биография")
