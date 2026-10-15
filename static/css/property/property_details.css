@@ -1,0 +1,40 @@
+main {
+    max-width: 1000px;
+    margin:0 auto;
+    background-color: #F5F7FA;
+    color: #1E3A5F;
+    display: flex;
+    padding: 1rem 1rem;
+
+}
+
+
+.features {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+img {
+    width: 450px;
+    height: 250px;
+    object-fit: cover;
+    display: block;
+
+}
+
+.broker-info-button {
+    margin: 20px;
+    font-size: 14px;
+    color: #ffffff;
+    border-radius: 8px;
+    background-color: #1E3A5F;
+    padding: 10px 15px;
+    border: 1px solid #1E3A5F;
+    text-decoration: none;
+}
+
+.description {
+    padding: 20px;
+}

@@ -1,7 +1,5 @@
 * {
     box-sizing: border-box;
-    font-family: Arial, sans-serif;
-    font-size: 18px;
 }
 
 body {
@@ -34,75 +32,64 @@ footer {
     background-color: #1E3A5F;
 }
 
-.button {
-    margin: 20px;
-    font-size: 14px;
-    color: #1E3A5F;
-    border-radius: 15px;
-    background-color: #68e368;
-    padding: 10px 15px;
-    margin: 20px;
-    border: 1px solid #1E3A5F;
-    text-decoration: none;
-}
-
-.btn {
-    display: inline-block;
-    background-color: #1E3A5F;
-    color: #F5F7FA;
-    padding: 13px 10px;
-    border-radius: 6px;
-    text-decoration: none;
-}
 
 main {
     margin: auto;
     max-width: 1600px;
-    display: flex;
+
 }
 
 .section-left {
     flex: 1;
+    flex-direction: column;
+    width: 65%;
+    padding: 1rem 1rem;
+    align-items: center;
+    justify-content: center;
+    justify-items: center;
 }
 
 .section-right {
     flex: 2;
-}
-
-.image {
-    width: 200px;
-    height: 200px;
-    background-color: #e9ecef;
-    border-radius: 5px;
-    display: flex;
-    justify-content: center;
+    flex-direction: column;
+    width: 35%;
+    padding: 1rem 1rem;
     align-items: center;
-    color: #6c757d;
-    font-weight: bold;
-    padding: 20px;
-    margin: 20px;
+    justify-content: center;
 }
 
-.edit-button {
+
+.action-button {
     margin: 20px;
     font-size: 14px;
     color: #1E3A5F;
-    border-radius: 15px;
+    border-radius: 8px;
     background-color: #68e368;
     padding: 10px 15px;
-    margin: 20px;
     border: 1px solid #1E3A5F;
+    text-decoration: none;
 }
 
 .delete-button  {
     background-color: #d22323;
     color: #1E3A5F;
-    border-radius: 15px;
+    border-radius: 8px;
     padding: 10px 15px;
-    margin: 0;
+    margin: 10px;
     border: 1px solid #1E3A5F;
     text-decoration: none;
     display: inline-block;
+    font-size: 14px;
+}
+
+.cancel-button {
+    background-color: #d22323;
+    color: #1E3A5F;
+    border-radius: 8px;
+    padding: 10px 15px;
+    margin: 10px;
+    border: 1px solid #1E3A5F;
+    text-decoration: none;
     font-size: 14px;
 }
 
@@ -114,19 +101,6 @@ img {
 
 }
 
-.form-field {
-    display: flex;
-    margin-bottom: 15px;
-}
-
-.form-field label {
-    width: 150px;
-}
-
-.form-field input {
-    display: flex;
-    flex: 1;
-}
 .logo {
     width: 100px;
     height: auto;
@@ -134,34 +108,40 @@ img {
     display: block;
 }
 
-.left {
-    display: flex;
-    align-items: center;
-}
 
 input {
     width: 240px;
-    height: 30px;
+    min-height: 40px;
     margin-bottom: 20px;
-    border-radius: 5px;
-    border-radius: 10px;
-    padding: 15px 27px;
-    font-size: 17px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 8px 12px;
+    font-size: 16px;
     color: #1E3A5F;
-    text-align: center;
-
 }
 
 select {
     width: 240px;
-    height: 30px;
-    border-radius: 5px;
+    min-height: 40px;
+    padding: 8px 12px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 16px;
+    color: #1E3A5F;
+    background-color: #fff;
 }
 
-
-h2 {
+h2, h1, h3 {
     text-align: center;
 }
+
+p {
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+
 
 .notfound {
     display: flex;
@@ -174,11 +154,9 @@ h2 {
     align-items: center;
     justify-content: center;
     position: absolute;
-    top: 50%;
     transform: translateY(-50%);
     right: 105px;
-    top: 17px;
-
+    top: 20px;
 }
 
 .non-border {
@@ -187,7 +165,7 @@ h2 {
 }
 
 .search-button svg {
-    margin-left: 5px;
+    margin-left: 7px;
 
 }
 
@@ -195,4 +173,57 @@ h2 {
     position: relative;
 }
 
+.feature-form {
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    max-width: 500px;
+}
 
+.picture img {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 8px;
+    display: block;
+    margin-bottom: 10px;
+    margin-right: 20px;
+}
+
+#id_main_image {
+    border: none;
+}
+
+.button {
+    margin: 10px;
+    font-size: 14px;
+    color: #1E3A5F;
+    border-radius: 8px;
+    background-color: #68e368;
+    padding: 10px 15px;
+    border: 1px solid #1E3A5F;
+    text-decoration: none;
+    display: inline-block;
+    text-align: center;
+    font-weight: bold;
+}
+
+.btn {
+    display: inline-block;
+    background-color: #1E3A5F;
+    color: #F5F7FA;
+    padding: 13px 10px;
+    border-radius: 8px;
+    text-decoration: none;
+}
+
+#id_city {
+    margin-bottom: 20px;
+}
+
+body > header > nav > div.left {
+    display: flex;
+    align-items: center;
+}

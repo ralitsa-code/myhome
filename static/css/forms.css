@@ -52,6 +52,8 @@ input[type="file"] {
 }
 
 #id_main_image_error li,
+#id_bedrooms_error,
+#id_bathrooms_error,
 #id_picture_error li,
 body > main > main > section > form > div:nth-child(5) > ul > li {
     color: #bd0404;
@@ -59,5 +61,10 @@ body > main > main > section > form > div:nth-child(5) > ul > li {
     background-color: #eecdcd;
     border-radius: 8px;
     padding: 10px 15px;
-    border: 1px solid #e00f35;;
+    border: 1px solid #e00f35;
+    margin: 20px;
+}
+
+p {
+    margin-bottom: 30px;
 }

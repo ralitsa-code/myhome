@@ -1,0 +1,20 @@
+label[for="id_name"] {
+    display: none;
+}
+
+#id_name_error > li,
+body > main > main > section > form > ul {
+    color: #bd0404;
+    list-style-type: none;
+    background-color: #eecdcd;
+    border-radius: 8px;
+    padding: 10px 15px;
+    border: 1px solid #e00f35;
+    text-align: center;
+    margin: 0 auto;
+}
+
+.feature-form {
+    display: block;
+    text-align: center;
+}

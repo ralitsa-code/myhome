@@ -1,0 +1,52 @@
+.form-container h2 {
+    margin-bottom: 30px;
+}
+
+.form-container .button {
+    margin: 20px 0 0 175px;
+}
+
+.form-container .features {
+    align-items: flex-start;
+}
+
+.form-container .features > div {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.form-container .features > div label {
+    display: flex;
+    align-items: center;
+    width: auto;
+    margin: 0;
+}
+
+.form-container .features input[type="checkbox"] {
+    width: 18px;
+    min-height: 18px;
+    height: 18px;
+    margin: 0 10px 0 0;
+    padding: 0;
+    flex: none;
+    accent-color: #1E3A5F;
+}
+
+#id_main_image {
+    border: none;
+}
+
+.picture {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 8px;
+    display: block;
+    margin-bottom: 10px;
+    margin-right: 20px;
+}
+
+.features select {
+    height: 200px;
+}
