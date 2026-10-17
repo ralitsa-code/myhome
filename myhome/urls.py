@@ -30,7 +30,6 @@ urlpatterns = [
     path('brokers/', include('broker.urls')),
     path('cities/', include('city.urls')),
     path('neighborhood/', include('neighbourhood.urls')),
-
 ]
 if settings.DEBUG:
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
