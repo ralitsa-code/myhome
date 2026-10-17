@@ -14,6 +14,9 @@ class BrokerForm(forms.ModelForm):
             "picture": FileInput(),
             "description": forms.Textarea()
         }
+        help_texts = {
+            'phone_number': "Въведи телефон без интервали."
+        }
 
 
 class DeleteBrokerForm(DisabledFormMixin, BrokerForm):

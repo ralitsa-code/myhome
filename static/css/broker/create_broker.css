@@ -1,3 +1,9 @@
 .section-buttons {
     text-align: center;
 }
+
+.help-text {
+    color: #8A94A3;
+    font-size: 0.85rem;
+    margin: 10px;
+}
