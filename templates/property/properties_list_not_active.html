@@ -13,38 +13,14 @@
 
 {% block content %}
     <main>
-        <p>Тези имоти не са активни.</p>
         <div class="page-header">
             <a class="action-button" href="{% url 'properties-list' %}">Виж активни имоти</a>
-            <form method="get" class="search-form">
-                <div>
-                    <input
-                    type="text"
-                    id="search"
-                    name="search"
-                    value="{{ search }}"
-                    placeholder="Търси по град"
-                    >
-                </div>
-            </form>
-            </div>
+            {% include 'property/property_search.html' %}
+        </div>
         {% if properties %}
             <div class="properties-container">
                 {% for property in properties %}
-                    <article class="property-card">
-                    {% if property.main_image %}
-                        <img src="{{ property.main_image.url }}" >
-                    {% else %}
-                        <div class="property-image-list">No Image</div >
-                    {% endif %}
-                    <h2 class="property-title"> {{ property.get_property_type_display}}</h2>
-                    <p class="city">гр. {{ property.neighborhood.city }} </p>
-                    <p class="neighborhood">кв. {{ property.neighborhood.name }}</p>
-                    <p class="area">Площ: {{ property.area | floatformat }} кв.м</p>
-                    
-                <p class="price">{{ property.price | floatformat}} €</p>
-                <a href="{% url 'property-details' property.id %}" class="btn">Виж повече</a>
-                </article>
+                    {% include 'property/article.html' %}
                 {% endfor %}
             </div>
         {% else %}

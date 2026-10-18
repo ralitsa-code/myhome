@@ -13,34 +13,20 @@
 {% block content %}
     <main>
         <section class="welcome">
-            <h1>Добре дошли в сайта на агенция за недвижими имоти My home.</h1>
-            <p>Ние ще ви помогнем да откриете подходящия имот според вашите нужди и предпочитания!</p>
-            <p>Разгледайте нашите актуални предложения за продажба и наем и се свържете с нашите брокери за повече информация!</p>
+            <h1>Добре дошли в сайта на агенция My home.</h1>
+            <p>Разгледайте нашите актуални предложения за продажба и наем и се свържете с нашите брокери за повече
+                информация!</p>
         </section>
         <section>
             {% if properties %}
                 <div class="properties-container">
-                {% for property in properties %}
-                    <article class="property-card">
-
-                    {% if property.main_image %}
-                        <img src="{{ property.main_image.url }}" >
-                    {% else %}
-                        <div class="property-image-list">
-                                    No Image
-                                </div >
-                    {% endif %}
-
-                    <h2 class="property-title"> {{ property.get_property_type_display}}</h2>
-                        <p class="city">гр. {{ property.neighborhood.city }}</p>
-                        <p class="neighborhood">кв. {{ property.neighborhood.name }}</p>
-                        <p class="area">Площ: {{ property.area | floatformat }} кв.м</p><p class="price">{{ property.price | floatformat}} €</p><a href="{% url 'property-details' property.id %}" class="btn">Виж повече</a>
-                    </article>
+                    {% for property in properties %}
+                        {% include 'property/article.html' %}
                     {% endfor %}
                 </div>
-        {% else %}
-            <h2>Няма имоти</h2>
-        {% endif %}
+            {% else %}
+                <h2>Няма имоти</h2>
+            {% endif %}
         </section>
     </main>
 {% endblock %}

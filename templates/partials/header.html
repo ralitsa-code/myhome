@@ -3,11 +3,9 @@
 <header>
     <nav>
         <div class="left">
-            <a href="{% url 'index' %}"><img alt="logo" class="logo" src="{%  static 'images/house.png' %}"></a>
+            <a href="{% url 'index' %}"><img alt="лого на My home" class="logo" src="{% static 'images/house.png' %}"></a>
             <a href="{% url 'index' %}">My home</a>
         </div>
-
-
         <div class="right">
             <a href="{% url 'properties-list' %}">Имоти</a>
             <a href="{% url 'cities-list' %}">Градове</a>
