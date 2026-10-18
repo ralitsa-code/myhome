@@ -13,10 +13,11 @@
 
 {% block content %}
     <main>
+        <p>Тези имоти не са активни.</p>
         <div class="page-header">
             <a class="action-button" href="{% url 'properties-list' %}">Виж активни имоти</a>
             <form method="get" class="search-form">
-            <div>
+                <div>
                     <input
                     type="text"
                     id="search"
@@ -24,9 +25,9 @@
                     value="{{ search }}"
                     placeholder="Търси по град"
                     >
+                </div>
+            </form>
             </div>
-        </form>
-        </div>
         {% if properties %}
             <div class="properties-container">
                 {% for property in properties %}
@@ -34,9 +35,7 @@
                     {% if property.main_image %}
                         <img src="{{ property.main_image.url }}" >
                     {% else %}
-                        <div class="property-image-list">
-                                    No Image
-                                </div >
+                        <div class="property-image-list">No Image</div >
                     {% endif %}
                     <h2 class="property-title"> {{ property.get_property_type_display}}</h2>
                     <p class="city">гр. {{ property.neighborhood.city }} </p>
@@ -49,8 +48,7 @@
                 {% endfor %}
             </div>
         {% else %}
-            <h2>Няма имоти</h2>
+            <h3>В момента няма неактивни имоти.</h3>
         {% endif %}
     </main>
-    
 {% endblock %}

@@ -10,9 +10,9 @@
     <link rel="stylesheet" href="{% static 'css/property/properties_list.css' %}">
 {% endblock %}
 
-
 {% block content %}
     <main>
+        <p>Това са актуалните имоти на агенцията. За повече информация може да се свържете с брокер.</p>
         <div class="page-header">
             <div class="buttons">
                 <a class="action-button" href="{% url 'create-property' %}">Добави имот</a>
@@ -20,7 +20,7 @@
             </div>
             
             <form method="get" class="search-form">
-            <div>
+                <div>
                     <input
                     type="text"
                     id="search"
@@ -28,8 +28,8 @@
                     value="{{ search }}"
                     placeholder="Търси по град"
                     >
-            </div>
-        </form>
+                </div>
+            </form>
         </div>
         {% if properties %}
             <div class="properties-container">
@@ -38,23 +38,19 @@
                     {% if property.main_image %}
                         <img src="{{ property.main_image.url }}" >
                     {% else %}
-                        <div class="property-image-list">
-                                    No Image
-                                </div >
+                        <div class="property-image-list">No Image</div >
                     {% endif %}
                     <h2 class="property-title"> {{ property.get_property_type_display}}</h2>
                     <p class="city">гр. {{ property.neighborhood.city }} </p>
                     <p class="neighborhood">кв. {{ property.neighborhood.name }}</p>
                     <p class="area">Площ: {{ property.area | floatformat }} кв.м</p>
-                    
                 <p class="price">{{ property.price | floatformat}} €</p>
                 <a href="{% url 'property-details' property.id %}" class="btn">Виж повече</a>
                 </article>
                 {% endfor %}
             </div>
         {% else %}
-            <h2>Няма имоти</h2>
+            <h3>Няма имоти</h3>
         {% endif %}
     </main>
-    
 {% endblock %}
