@@ -3,9 +3,20 @@ from django.urls import path
 
 urlpatterns = [
     path(
+        'not-active/',
+        views.properties_list_not_active,
+        name='properties-list-not-active',
+    ),
+
+    path(
         '',
         views.properties_list,
         name='properties-list'
+    ),
+    path(
+        'not-active/',
+        views.properties_list_not_active,
+        name='properties-list-not-active',
     ),
     path(
         '<int:property_id>/',
@@ -25,5 +36,6 @@ urlpatterns = [
         '<int:property_id>/delete/',
         views.delete_property,
         name='delete-property'
-    )
+    ),
+
 ]

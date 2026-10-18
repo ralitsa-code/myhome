@@ -19,6 +19,20 @@ def properties_list(request):
          'search': search}
     )
 
+def properties_list_not_active(request):
+    search = request.GET.get('search', '').strip()
+
+    properties = Property.objects.filter(active=False)
+    if search:
+        properties = properties.filter(neighborhood__city__name__icontains=search)
+
+    return render(
+        request,
+        'property/properties_list_not_active.html',
+        {'properties': properties,
+         'search': search}
+    )
+
 def property_details(request, property_id):
 
     real_estate = get_object_or_404(

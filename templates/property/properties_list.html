@@ -14,7 +14,11 @@
 {% block content %}
     <main>
         <div class="page-header">
-            <a class="action-button" href="{% url 'create-property' %}">Добави имот</a>
+            <div class="buttons">
+                <a class="action-button" href="{% url 'create-property' %}">Добави имот</a>
+                <a class="action-button" href="{% url 'properties-list-not-active' %}">Виж неактивни имоти</a>
+            </div>
+            
             <form method="get" class="search-form">
             <div>
                     <input
