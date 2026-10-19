@@ -3,26 +3,24 @@
 {% load phone_format %}
 
 {% block title %}
-    {{ broker.first_name | lower | capfirst}} {{ broker.last_name | lower | capfirst}} | My home
+    {{ broker.first_name | lower | capfirst }} {{ broker.last_name | lower | capfirst }} | My home
 {% endblock %}
 
 {% block extra_css %}
     <link rel="stylesheet" href="{% static 'css/broker/broker_details.css' %}">
 {% endblock %}
 
-
 {% block content %}
     <main>
         {% if broker.picture %}
-            <img class="width-400" src="{{ broker.picture.url }}" >
+            <img class="width-400" src="{{ broker.picture.url }}">
         {% else %}
             <div class="broker-image">
                 No Image
-            </div >
+            </div>
         {% endif %}
-    
         <article class="broker-info">
-            <h2>{{ broker.first_name}} {{ broker.last_name }}</h2>
+            <h2>{{ broker.first_name }} {{ broker.last_name }}</h2>
             <p><i class="fa-solid fa-phone-volume"></i> {{ broker.phone_number|phone_format }}</p>
             <p><i class="fa-solid fa-envelope"></i> {{ broker.email }}</p>
             <article class="description">
@@ -30,6 +28,6 @@
             </article>
         </article>
         <a class="action-button" href="{% url 'edit-broker' broker.id %}">Редактирай информация</a>
-        <a class="delete-button" href="{% url 'delete-broker' broker.id %}" >Изтрий брокер</a>
+        <a class="delete-button" href="{% url 'delete-broker' broker.id %}">Изтрий брокер</a>
     </main>
 {% endblock %}

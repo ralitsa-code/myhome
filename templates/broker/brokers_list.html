@@ -12,45 +12,43 @@
 
 {% block content %}
     <main>
-    <div class="page-header">
-        <a class="action-button" href="{% url 'create-broker' %}">Добави брокер</a>
-        <form method="get" class="search-form">
-            <div>
+        <div class="page-header">
+            <a class="action-button" href="{% url 'create-broker' %}">Добави брокер</a>
+            <form method="get" class="search-form">
+                <div>
                     <input
-                    type="text"
-                    id="search"
-                    name="search"
-                    value="{{ search }}"
-                    placeholder="Търси брокер по име"
+                            type="text"
+                            id="search"
+                            name="search"
+                            value="{{ search }}"
+                            placeholder="Търси брокер по име"
                     >
-            </div>
-        </form>
-    </div>
-
-    {% if brokers %}
-        <div class="brokers-container">
-            {% for broker in brokers %}
-                <article class="broker-card">
-                {% if broker.picture %}
-                    <img src="{{ broker.picture.url }}" >
-                {% else %}
-                    <div class="broker-image">
-                    No Image
-                    </div >
-                {% endif %}
-
-                <h3>{{ broker.first_name }} {{ broker.last_name }}</h3>
-                <p><i class="fa-solid fa-phone-volume"></i> {{ broker.phone_number|phone_format }}</p>
-                <p><i class="fa-solid fa-envelope"></i> {{ broker.email}}</p>
-                <a class="btn" href="{% url 'broker-details' broker.id %}">Повече информация</a>
-                </article>
-
-            {% endfor %}
+                </div>
+            </form>
         </div>
-    {% else %}
-        <h2>Няма брокери</h2>
-    {% endif %}
 
+        {% if brokers %}
+            <div class="brokers-container">
+                {% for broker in brokers %}
+                    <article class="broker-card">
+                        {% if broker.picture %}
+                            <img src="{{ broker.picture.url }}">
+                        {% else %}
+                            <div class="broker-image">
+                                No Image
+                            </div>
+                        {% endif %}
+
+                        <h3>{{ broker.first_name }} {{ broker.last_name }}</h3>
+                        <p><i class="fa-solid fa-phone-volume"></i> {{ broker.phone_number|phone_format }}</p>
+                        <p><i class="fa-solid fa-envelope"></i> {{ broker.email }}</p>
+                        <a class="btn" href="{% url 'broker-details' broker.id %}">Повече информация</a>
+                    </article>
+
+                {% endfor %}
+            </div>
+        {% else %}
+            <h2>Няма брокери</h2>
+        {% endif %}
     </main>
-
 {% endblock %}
