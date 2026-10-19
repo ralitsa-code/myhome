@@ -1,14 +1,19 @@
-from django.forms import modelform_factory
 from django.shortcuts import render, get_object_or_404, redirect
-
 from property.forms import PropertyForm, DeletePropertyForm
 from property.models import Property
 
 
 def properties_list(request):
     search = request.GET.get('search', '').strip()
+    status = request.GET.get('status', 'active')
 
-    properties = Property.objects.filter(active=True)
+    properties = Property.objects.all()
+
+    if status == 'active':
+        properties = properties.filter(active=True)
+    elif status == 'inactive':
+        properties = properties.filter(active=False)
+
     if search:
         properties = properties.filter(neighborhood__city__name__icontains=search)
 
@@ -16,22 +21,10 @@ def properties_list(request):
         request,
         'property/properties_list.html',
         {'properties': properties,
-         'search': search}
+         'search': search,
+         'status': status}
     )
 
-def properties_list_not_active(request):
-    search = request.GET.get('search', '').strip()
-
-    properties = Property.objects.filter(active=False)
-    if search:
-        properties = properties.filter(neighborhood__city__name__icontains=search)
-
-    return render(
-        request,
-        'property/properties_list_not_active.html',
-        {'properties': properties,
-         'search': search}
-    )
 
 def property_details(request, property_id):
 

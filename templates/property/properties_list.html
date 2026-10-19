@@ -15,9 +15,10 @@
         <div class="page-header">
             <div class="buttons">
                 <a class="action-button" href="{% url 'create-property' %}">Добави имот</a>
-                <a class="action-button" href="{% url 'properties-list-not-active' %}">Виж неактивни имоти</a>
+                
             </div>
             {% include 'property/property_search.html' %}
+            {% include 'property/property_status_filter.html' %}
         </div>
         {% if properties %}
             <div class="properties-container">
