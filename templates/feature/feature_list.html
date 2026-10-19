@@ -11,19 +11,19 @@
 {% endblock %}
 
 {% block content %}
-        <main>
-            {% include 'search_form.html' %}
-            <h3>За да редактирате характеристика кликнете върху нея.</h3>
-            <section class="list-container">
-                {% for feature in features %}
-                    <a href="{% url 'edit-feature' feature.id %}" 
-                       class="list-item">
+    <main>
+        {% include 'search_form.html' %}
+        <h3>За да редактирате характеристика кликнете върху нея.</h3>
+        <section class="list-container">
+            {% for feature in features %}
+                <a href="{% url 'edit-feature' feature.id %}"
+                   class="list-item">
                     {{ feature.name }}
-                    </a>
-                {% endfor %}
-            </section>
-            <section class="edit-features">
-                <a class="button" href="{% url 'create-feature' %}">Добави характеристика</a>
-            </section>
-        </main>
+                </a>
+            {% endfor %}
+        </section>
+        <section class="edit-features">
+            <a class="button" href="{% url 'create-feature' %}">Добави характеристика</a>
+        </section>
+    </main>
 {% endblock %}
