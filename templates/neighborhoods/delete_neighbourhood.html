@@ -10,27 +10,27 @@
 {% endblock %}
 
 {% block content %}
-        <main>
-            <section class="feature-form"> 
+    <main>
+        <section class="feature-form">
+            <div>
+                <h3>
+                    Наистина ли искате да изтриете този квартал?
+                </h3>
+            </div>
+            <form method="post">
+                {% csrf_token %}
                 <div>
-                    <h3>
-                         Наистина ли искате да изтриете този квартал?
-                    </h3>
+                    {{ form.name }}
+                    {{ form.name.errors }}
                 </div>
-                <form method="post" >
-                    {% csrf_token %}
-                    <div>
-                        {{ form.name }}
-                        {{ form.name.errors}}
-                    </div>
 
-                     <div>
-                        {{ form.city }}
-                        {{ form.city.errors}}
-                    </div>
-                    <a href="{% url 'delete-neighbourhood' neighbourhood_id %}" ><button class="delete-button" type="submit" >Да, изтрий</button></a>
-                </form>
-                <a href="{%  url 'neighbourhood-list' %}" class="button" > Не изтривай </a>
-            </section>
-        </main>
+                <div>
+                    {{ form.city }}
+                    {{ form.city.errors }}
+                </div>
+                <button class="delete-button" type="submit">Да, изтрий</button>
+            </form>
+            <a href="{% url 'neighbourhood-list' %}" class="button"> Не изтривай </a>
+        </section>
+    </main>
 {% endblock %}

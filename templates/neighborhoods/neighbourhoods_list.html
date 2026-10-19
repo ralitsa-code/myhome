@@ -10,18 +10,18 @@
 {% endblock %}
 
 {% block content %}
-        <main>
+    <main>
         {% include 'search_form.html' %}
-            <h3>За да редактирате квартал кликнете върху него.</h3>
-            <section class="features-container">
-                {% for neighbourhood in neighbourhoods %}
-                    <a class="feature" href="{% url 'edit-neighbourhood' neighbourhood.id %}">
+        <h3>За да редактирате квартал кликнете върху него.</h3>
+        <section class="features-container">
+            {% for neighbourhood in neighbourhoods %}
+                <a class="feature" href="{% url 'edit-neighbourhood' neighbourhood.id %}">
                     {{ neighbourhood.name }} / {{ neighbourhood.city.name }}
-                    </a>
-                {% endfor %}
-            </section>
-            <section class="edit-features">
-                <a class="button" href="{% url 'create-neighbourhood' %}">Добави квартал</a>
-            </section>
-        </main>
+                </a>
+            {% endfor %}
+        </section>
+        <section class="edit-features">
+            <a class="button" href="{% url 'create-neighbourhood' %}">Добави квартал</a>
+        </section>
+    </main>
 {% endblock %}
