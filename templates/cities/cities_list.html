@@ -10,18 +10,18 @@
 {% endblock %}
 
 {% block content %}
-        <main>
-            {% include 'search_form.html' %}
-            <h3>За да редактирате град кликнете върху него.</h3>
-            <section class="list-container">
-                {% for city in cities %}
-                    <a href="{% url 'edit-city' city.id %}" class="list-item" >
+    <main>
+        {% include 'search_form.html' %}
+        <h3>За да редактирате град кликнете върху него.</h3>
+        <section class="list-container">
+            {% for city in cities %}
+                <a href="{% url 'edit-city' city.id %}" class="list-item">
                     {{ city.name }}
-                    </a>
-                {% endfor %}
-            </section>
-            <section class="edit-features">
-                <a class="button" href="{% url 'create-city' %}">Добави град</a>
-            </section>
-        </main>
+                </a>
+            {% endfor %}
+        </section>
+        <section class="edit-features">
+            <a class="button" href="{% url 'create-city' %}">Добави град</a>
+        </section>
+    </main>
 {% endblock %}

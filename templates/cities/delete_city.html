@@ -10,19 +10,19 @@
 {% endblock %}
 
 {% block content %}
-        <main>
-            <section class="feature-form"> 
-                <div>
-                    <h3>
-                         Наистина ли искате да изтриете този град?
-                    </h3>
-                </div>
-                <form method="post" >
-                    {{ form }}
-                    {% csrf_token %}
-                    <button class="delete-button">Да, изтрий</button>
-                </form>
-                <a href="{%  url 'cities-list' %}" class="button" > Не изтривай </a>
-            </section>
-        </main>
+    <main>
+        <section class="feature-form">
+            <div>
+                <h3>
+                    Наистина ли искате да изтриете този град?
+                </h3>
+            </div>
+            <form method="post">
+                {{ form }}
+                {% csrf_token %}
+                <button class="delete-button">Да, изтрий</button>
+            </form>
+            <a href="{% url 'cities-list' %}" class="button"> Не изтривай </a>
+        </section>
+    </main>
 {% endblock %}
