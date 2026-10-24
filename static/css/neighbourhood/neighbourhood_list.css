@@ -26,3 +26,7 @@ main {
 .submit {
     margin-top: 20px;
 }
+
+.search-button {
+    right: 35px;
+}

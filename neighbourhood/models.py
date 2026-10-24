@@ -4,8 +4,8 @@ from city.models import City
 
 
 class Neighbourhood(models.Model):
-    name = models.CharField(max_length=100, verbose_name="Квартал")
-    city = models.ForeignKey(City, on_delete=models.CASCADE, related_name='neighbourhoods', verbose_name="Град")
+    name = models.CharField(max_length=100, verbose_name="Neighbourhood")
+    city = models.ForeignKey(City, on_delete=models.CASCADE, related_name='neighbourhoods', verbose_name="City")
 
 
     class Meta:
@@ -13,7 +13,7 @@ class Neighbourhood(models.Model):
             models.UniqueConstraint(
                 fields=['city', 'name'],
                 name='unique_neighbourhood_per_city',
-                violation_error_message= '! Този квартал вече е добавен.',
+                violation_error_message= '! This neighbourhood has already been added.',
             )
         ]
 

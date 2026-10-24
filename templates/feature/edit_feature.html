@@ -2,7 +2,7 @@
 
 
 {% block title %}
-    Редактирай характеристика | My Home
+    Edit Feature | My Home
 {% endblock %}
 
 {% block extra_css %}
@@ -16,7 +16,7 @@
         <section class="feature-form">
             <div>
                 <h3>
-                    Редактирай характеристиката, след което запази промените.
+                    Edit the feature and save your changes.
                 </h3>
             </div>
             <form method="post">
@@ -26,11 +26,11 @@
                     {{ form.name.errors }}
                 </div>
                 <button type="submit" class="button">
-                    Запази промените
+                    Save Changes
                 </button>
             </form>
             <a href="{% url 'delete-feature' feature.pk %}" class="delete-button">
-                Изтрий
+                Delete
             </a>
         </section>
     </main>

@@ -17,7 +17,7 @@
     <main>
         <section class="section-left">
             {% if property.main_image %}
-                <img src="{{ property.main_image.url }}" alt="Снимка на имот">
+                <img src="{{ property.main_image.url }}" alt="Property image">
             {% else %}
                 <div class="broker-image">
                     No Image
@@ -31,17 +31,17 @@
             <article class="features">
                 <h3>{{ property.get_property_type_display }}</h3>
                 <p>{{ property.get_offer_type_display }}</p>
-                <p>Град: {{ property.neighborhood.city.name }} </p>
-                <p>Квартал: {{ property.neighborhood.name }}</p>
-                <p>Площ: {{ property.area | floatformat }} кв.м</p>
-                <p>Цена: {{ property.price | floatformat }} €</p>
+                <p>City: {{ property.neighborhood.city.name }} </p>
+                <p>Neighborhood: {{ property.neighborhood.name }}</p>
+                <p>Area: {{ property.area | floatformat }} sq. m.</p>
+                <p>Price: {{ property.price | floatformat }} €</p>
 
                 {% if property.bedrooms %}
-                    <p>{{ property.bedrooms }} спални</p>
+                    <p>{{ property.bedrooms }} bedrooms</p>
                 {% endif %}
 
                 {% if property.bathrooms %}
-                    <p>{{ property.bathrooms }} бани</p>
+                    <p>{{ property.bathrooms }} bathrooms</p>
                 {% endif %}
                 {% if property.features %}
                     {% for feature in property.features.all %}
@@ -50,10 +50,10 @@
                 {% endif %}
                 {% if property.broker %}
                     <a class="broker-info-button"
-                       href="{% url 'broker-details' property.broker.id %}">Брокер: {{ property.broker.first_name }} {{ property.broker.last_name }}</a>
+                       href="{% url 'broker-details' property.broker.id %}">Broker: {{ property.broker.first_name }} {{ property.broker.last_name }}</a>
                 {% endif %}
-                <a class="action-button" href="{% url 'edit-property' property.id %}">Редактирай имот</a>
-                <a class="delete-button" href="{% url 'delete-property' property.id %}">Изтрий имот</a>
+                <a class="action-button" href="{% url 'edit-property' property.id %}">Edit Property</a>
+                <a class="delete-button" href="{% url 'delete-property' property.id %}">Delete Property</a>
             </article>
         </section>
     </main>

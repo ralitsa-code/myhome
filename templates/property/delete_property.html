@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 
 {% block title %}
-    Изтрий имот | My Home
+    Delete Property | My Home
 {% endblock %}
 
 {% block extra_css %}
@@ -16,7 +16,7 @@
         <section>
             <div>
                 <h3>
-                    Наистина ли искате да изтриете този имот?
+                    Are you sure you want to delete this property?
                 </h3>
             </div>
             <form method="post" action="{% url 'delete-property' property.id %}">
@@ -85,14 +85,14 @@
                 <div class="form-field ">
                     {{ form.main_image.label_tag }}
                     {% if property.main_image %}
-                        <img class="picture" alt="Снимка на имот" src="{{ property.main_image.url }}">
+                        <img class="picture" alt="Property image" src="{{ property.main_image.url }}">
                     {% endif %}
                     {{ form.main_image }}
                     {{ form.main_image.errors }}
                 </div>
                 <section class="section-buttons">
-                    <button class="delete-button" type="submit">Да, изтрий</button>
-                    <a href="{% url 'properties-list' %}" class="button"> Не изтривай </a>
+                    <button class="delete-button" type="submit">Yes, delete</button>
+                    <a href="{% url 'properties-list' %}" class="button">Cancel</a>
                 </section>
             </form>
         </section>

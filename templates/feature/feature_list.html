@@ -2,7 +2,7 @@
 
 
 {% block title %}
-    Характеристики | My Home
+    Features | My Home
 {% endblock %}
 
 {% block extra_css %}
@@ -13,7 +13,7 @@
 {% block content %}
     <main>
         {% include 'search_form.html' %}
-        <h3>За да редактирате характеристика кликнете върху нея.</h3>
+        <h3>Click a feature to edit it.</h3>
         <section class="list-container">
             {% for feature in features %}
                 <a href="{% url 'edit-feature' feature.id %}"
@@ -23,7 +23,7 @@
             {% endfor %}
         </section>
         <section class="edit-features">
-            <a class="button" href="{% url 'create-feature' %}">Добави характеристика</a>
+            <a class="button" href="{% url 'create-feature' %}">Add Feature</a>
         </section>
     </main>
 {% endblock %}

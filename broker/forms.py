@@ -15,7 +15,7 @@ class BrokerForm(forms.ModelForm):
             "description": forms.Textarea()
         }
         help_texts = {
-            'phone_number': "Въведи телефон без интервали."
+            'phone_number': "Enter a phone number without spaces."
         }
 
 

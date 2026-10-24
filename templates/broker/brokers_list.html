@@ -2,7 +2,7 @@
 {% load phone_format %}
 
 {% block title %}
-    Брокери | My Home
+    Brokers | My Home
 {% endblock %}
 
 {% block extra_css %}
@@ -13,7 +13,7 @@
 {% block content %}
     <main>
         <div class="page-header">
-            <a class="action-button" href="{% url 'create-broker' %}">Добави брокер</a>
+            <a class="action-button" href="{% url 'create-broker' %}">Add Broker</a>
             <form method="get" class="search-form">
                 <div>
                     <input
@@ -21,7 +21,7 @@
                             id="search"
                             name="search"
                             value="{{ search }}"
-                            placeholder="Търси брокер по име"
+                            placeholder="Search brokers by name"
                     >
                 </div>
             </form>
@@ -42,13 +42,13 @@
                         <h3>{{ broker.first_name }} {{ broker.last_name }}</h3>
                         <p><i class="fa-solid fa-phone-volume"></i> {{ broker.phone_number|phone_format }}</p>
                         <p><i class="fa-solid fa-envelope"></i> {{ broker.email }}</p>
-                        <a class="btn" href="{% url 'broker-details' broker.id %}">Повече информация</a>
+                        <a class="btn" href="{% url 'broker-details' broker.id %}">More Information</a>
                     </article>
 
                 {% endfor %}
             </div>
         {% else %}
-            <h2>Няма брокери</h2>
+            <h2>No brokers found</h2>
         {% endif %}
     </main>
 {% endblock %}

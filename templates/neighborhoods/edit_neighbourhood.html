@@ -2,7 +2,7 @@
 
 
 {% block title %}
-    Редактирай квартал | My Home
+    Edit Neighbourhood | My Home
 {% endblock %}
 
 {% block extra_css %}
@@ -16,7 +16,7 @@
         <section class="feature-form">
             <div>
                 <h3>
-                    Редактирай кварталът, след което запази промените.
+                    Edit the neighbourhood and save your changes.
                 </h3>
             </div>
             <form method="post">
@@ -31,11 +31,11 @@
                 </div>
                 {{ form.non_field_errors }}
                 <button type="submit" class="button">
-                    Запази промените
+                    Save Changes
                 </button>
             </form>
             <a href="{% url 'delete-neighbourhood' neighbourhood.id %}" class="delete-button">
-                Изтрий
+                Delete
             </a>
         </section>
     </main>

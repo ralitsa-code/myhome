@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 
 {% block title %}
-    Редактирай град | My Home
+    Edit City | My Home
 {% endblock %}
 
 {% block extra_css %}
@@ -15,7 +15,7 @@
         <section class="feature-form">
             <div>
                 <h3>
-                    Редактирай градът, след което запази промените.
+                    Edit the city and save your changes.
                 </h3>
             </div>
             <form method="post">
@@ -25,11 +25,11 @@
                     {{ form.name.errors }}
                 </div>
                 <button type="submit" class="button">
-                    Запази промените
+                    Save Changes
                 </button>
             </form>
             <a href="{% url 'delete-city' city.id %}" class="delete-button">
-                Изтрий
+                Delete
             </a>
         </section>
     </main>

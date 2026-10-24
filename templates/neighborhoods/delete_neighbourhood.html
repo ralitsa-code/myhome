@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 
 {% block title %}
-    Изтрий квартал | My Home
+    Delete Neighbourhood | My Home
 {% endblock %}
 
 {% block extra_css %}
@@ -14,7 +14,7 @@
         <section class="feature-form">
             <div>
                 <h3>
-                    Наистина ли искате да изтриете този квартал?
+                    Are you sure you want to delete this neighbourhood?
                 </h3>
             </div>
             <form method="post">
@@ -28,9 +28,9 @@
                     {{ form.city }}
                     {{ form.city.errors }}
                 </div>
-                <button class="delete-button" type="submit">Да, изтрий</button>
+                <button class="delete-button" type="submit">Yes, delete</button>
             </form>
-            <a href="{% url 'neighbourhood-list' %}" class="button"> Не изтривай </a>
+            <a href="{% url 'neighbourhood-list' %}" class="button">Cancel</a>
         </section>
     </main>
 {% endblock %}

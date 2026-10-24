@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 
 {% block title %}
-    Изтрий характеристика | My Home
+    Delete Feature | My Home
 {% endblock %}
 
 {% block extra_css %}
@@ -14,15 +14,15 @@
         <section class="feature-form">
             <div>
                 <h3>
-                    Наистина ли искате да изтриете тази характеристика?
+                    Are you sure you want to delete this feature?
                 </h3>
             </div>
             <form method="post">
                 {{ form }}
                 {% csrf_token %}
-                <button class="delete-button">Да, изтрий</button>
+                <button class="delete-button">Yes, delete</button>
             </form>
-            <a href="{% url 'features-list' %}" class="button"> Не изтривай </a>
+            <a href="{% url 'features-list' %}" class="button">Cancel</a>
         </section>
     </main>
 {% endblock %}

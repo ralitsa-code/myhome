@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 
 {% block title %}
-    Квартали | My Home
+    Neighbourhoods | My Home
 {% endblock %}
 
 {% block extra_css %}
@@ -12,7 +12,7 @@
 {% block content %}
     <main>
         {% include 'search_form.html' %}
-        <h3>За да редактирате квартал кликнете върху него.</h3>
+        <h3>Click a neighbourhood to edit it.</h3>
         <section class="features-container">
             {% for neighbourhood in neighbourhoods %}
                 <a class="feature" href="{% url 'edit-neighbourhood' neighbourhood.id %}">
@@ -21,7 +21,7 @@
             {% endfor %}
         </section>
         <section class="edit-features">
-            <a class="button" href="{% url 'create-neighbourhood' %}">Добави квартал</a>
+            <a class="button" href="{% url 'create-neighbourhood' %}">Add Neighbourhood</a>
         </section>
     </main>
 {% endblock %}

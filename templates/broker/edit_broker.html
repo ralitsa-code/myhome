@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 
 {% block title %}
-    Редактирай брокер | My Home
+    Edit Broker | My Home
 {% endblock %}
 
 {% block extra_css %}
@@ -15,7 +15,7 @@
         <section>
             <div>
                 <p>
-                    Редактирай данните и натисни бутона Запази
+                    Edit the details and click Save.
                 </p>
             </div>
             <form method="post" enctype="multipart/form-data">
@@ -48,14 +48,14 @@
                 <div class="form-field picture">
                     {{ form.picture.label_tag }}
                     {% if broker.picture %}
-                        <img alt="снимка на брокера" src="{{ broker.picture.url }}">
+                        <img alt="Broker image" src="{{ broker.picture.url }}">
                     {% endif %}
                     {{ form.picture }}
                     {{ form.picture.errors }}
                 </div>
                 <section class="section-buttons">
-                    <button type="submit" class="button">Запази</button>
-                    <a href="{% url 'brokers-list' %}" class="delete-button">Откажи</a>
+                    <button type="submit" class="button">Save</button>
+                    <a href="{% url 'brokers-list' %}" class="delete-button">Cancel</a>
                 </section>
             </form>
         </section>

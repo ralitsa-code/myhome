@@ -9,53 +9,53 @@ from myhome.validators import ImageSizeValidator, ImageTypeValidator
 
 class Property(models.Model):
     class PropertyType(models.TextChoices):
-        HOUSE = "HOUSE", "Къща"
-        APARTMENT = "APARTMENT", "Апартамент"
-        OFFICE = "OFFICE", "Офис"
-        STUDIO = "STUDIO", "Студио"
-        COMMERCIAL = "COMMERCIAL", "Търговски обект"
-        GARAGE = "GARAGE", "Гараж"
-        PLOT = "PLOT", "Парцел"
+        HOUSE = "HOUSE", "House"
+        APARTMENT = "APARTMENT", "Apartment"
+        OFFICE = "OFFICE", "Office"
+        STUDIO = "STUDIO", "Studio"
+        COMMERCIAL = "COMMERCIAL", "Commercial Property"
+        GARAGE = "GARAGE", "Garage"
+        PLOT = "PLOT", "Plot"
 
     class OfferType(models.TextChoices):
-        FOR_SALE = "FOR_SALE", "За продажба"
-        FOR_RENT = "FOR_RENT", "Под наем"
+        FOR_SALE = "FOR_SALE", "For Sale"
+        FOR_RENT = "FOR_RENT", "For Rent"
 
     offer_type = models.CharField(
         max_length=20,
         choices=OfferType,
         default=OfferType.FOR_SALE,
-        verbose_name="Тип оферта"
+        verbose_name="Offer Type"
     )
 
     property_type = models.CharField(
         max_length=20,
         choices=PropertyType,
         default=PropertyType.APARTMENT,
-        verbose_name="Тип имот"
+        verbose_name="Property Type"
     )
 
     area = models.DecimalField(
         max_digits=10,
         decimal_places=2,
-        verbose_name="Площ",
+        verbose_name="Area",
         validators=[MaxValueValidator(10000), MinValueValidator(10)],
     )
 
     price = models.DecimalField(
         max_digits=10,
         decimal_places=2,
-        verbose_name="Цена",
+        verbose_name="Price",
         validators=[MaxValueValidator(10000000), MinValueValidator(10)],
     )
 
-    neighborhood = models.ForeignKey(Neighbourhood, on_delete=models.CASCADE, verbose_name="Квартал")
-    address = models.CharField(max_length=200, verbose_name="Адрес")
+    neighborhood = models.ForeignKey(Neighbourhood, on_delete=models.CASCADE, verbose_name="Neighbourhood")
+    address = models.CharField(max_length=200, verbose_name="Address")
 
     bedrooms = models.IntegerField(
         null=True,
         blank=True,
-        verbose_name="Спални",
+        verbose_name="Bedrooms",
         validators=[
             MinValueValidator(0),
         ],
@@ -64,22 +64,22 @@ class Property(models.Model):
     bathrooms = models.IntegerField(
         null=True,
         blank=True,
-        verbose_name="Бани",
+        verbose_name="Bathrooms",
         validators=[
             MinValueValidator(0),
         ],
     )
 
-    description = models.TextField(verbose_name="Описание")
+    description = models.TextField(verbose_name="Description")
 
     main_image = models.ImageField(
         upload_to='properties/',
-        verbose_name="Снимка",
+        verbose_name="Picture",
         null=True,
         blank=True,
         validators=[
-            ImageSizeValidator("! Размерът на снимката трябва да е по-малък от 1MB."),
-            ImageTypeValidator("! Форматът на снимката трябва да е jpg, jpeg или png.")
+            ImageSizeValidator("! The image size must be less than 1 MB."),
+            ImageTypeValidator("! The image format must be JPG, JPEG, or PNG.")
         ]
     )
 
@@ -89,13 +89,13 @@ class Property(models.Model):
         null=True,
         blank=True,
         related_name="properties",
-        verbose_name="Брокер",
+        verbose_name="Broker",
     )
 
-    created_at = models.DateTimeField(auto_now_add=True, verbose_name="Дата на създаване")
-    active = models.BooleanField(default=True, verbose_name="Активна оферта")
+    created_at = models.DateTimeField(auto_now_add=True, verbose_name="Date Created")
+    active = models.BooleanField(default=True, verbose_name="Active Listing")
 
-    features = models.ManyToManyField(Feature, blank=True, related_name="properties", verbose_name="Характеристики")
+    features = models.ManyToManyField(Feature, blank=True, related_name="properties", verbose_name="Features")
 
     def __str__(self):
         return f'{self.get_property_type_display()} {self.neighborhood} {self.price}'

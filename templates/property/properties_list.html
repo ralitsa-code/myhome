@@ -2,7 +2,7 @@
 
 
 {% block title %}
-    Имоти | My Home
+    Properties | My Home
 {% endblock %}
 
 {% block extra_css %}
@@ -14,7 +14,7 @@
     <main>
         <div class="page-header">
             <div class="buttons">
-                <a class="action-button" href="{% url 'create-property' %}">Добави имот</a>
+                <a class="action-button" href="{% url 'create-property' %}">Add Property</a>
                 
             </div>
             {% include 'property/property_search.html' %}
@@ -27,7 +27,7 @@
                 {% endfor %}
             </div>
         {% else %}
-            <h3>Няма имоти</h3>
+            <h3>No properties found</h3>
         {% endif %}
     </main>
 {% endblock %}

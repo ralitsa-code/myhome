@@ -1,3 +1,5 @@
+from django.core import paginator
+from django.core.paginator import Paginator
 from django.shortcuts import render, get_object_or_404, redirect
 from property.forms import PropertyForm, DeletePropertyForm
 from property.models import Property
@@ -15,7 +17,8 @@ def properties_list(request):
         properties = properties.filter(active=False)
 
     if search:
-        properties = properties.filter(neighborhood__city__name__icontains=search)
+        properties = properties.filter(
+            neighborhood__city__name__icontains=search)
 
     return render(
         request,
@@ -24,6 +27,8 @@ def properties_list(request):
          'search': search,
          'status': status}
     )
+
+    paginator
 
 
 def property_details(request, property_id):
@@ -43,6 +48,7 @@ def property_details(request, property_id):
         {'property': real_estate}
     )
 
+
 def create_property(request):
     if request.method == 'POST':
         form = PropertyForm(request.POST, request.FILES)
@@ -58,6 +64,7 @@ def create_property(request):
         'property/create_property.html',
         {'form': form}
     )
+
 
 def edit_property(request, property_id):
     property = get_object_or_404(Property, id=property_id)
@@ -77,6 +84,7 @@ def edit_property(request, property_id):
          'property': property
          }
     )
+
 
 def delete_property(request, property_id):
     property = get_object_or_404(Property, id=property_id)

@@ -3,7 +3,7 @@
 {% load phone_format %}
 
 {% block title %}
-    {{ broker.first_name | lower | capfirst }} {{ broker.last_name | lower | capfirst }} | My home
+    {{ broker.first_name | lower | capfirst }} {{ broker.last_name | lower | capfirst }} | My Home
 {% endblock %}
 
 {% block extra_css %}
@@ -27,7 +27,7 @@
                 {{ broker.description }}
             </article>
         </article>
-        <a class="action-button" href="{% url 'edit-broker' broker.id %}">Редактирай информация</a>
-        <a class="delete-button" href="{% url 'delete-broker' broker.id %}">Изтрий брокер</a>
+        <a class="action-button" href="{% url 'edit-broker' broker.id %}">Edit Information</a>
+        <a class="delete-button" href="{% url 'delete-broker' broker.id %}">Delete Broker</a>
     </main>
 {% endblock %}

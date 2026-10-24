@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 
 {% block title %}
-    Градове | My Home
+    Cities | My Home
 {% endblock %}
 
 {% block extra_css %}
@@ -12,7 +12,7 @@
 {% block content %}
     <main>
         {% include 'search_form.html' %}
-        <h3>За да редактирате град кликнете върху него.</h3>
+        <h3>Click a city to edit it.</h3>
         <section class="list-container">
             {% for city in cities %}
                 <a href="{% url 'edit-city' city.id %}" class="list-item">
@@ -21,7 +21,7 @@
             {% endfor %}
         </section>
         <section class="edit-features">
-            <a class="button" href="{% url 'create-city' %}">Добави град</a>
+            <a class="button" href="{% url 'create-city' %}">Add City</a>
         </section>
     </main>
 {% endblock %}

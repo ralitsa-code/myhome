@@ -13,9 +13,8 @@
 {% block content %}
     <main>
         <section class="welcome">
-            <h1>Добре дошли в сайта на агенция My home.</h1>
-            <p>Разгледайте нашите актуални предложения за продажба и наем и се свържете с нашите брокери за повече
-                информация!</p>
+            <h1>Welcome to My Home Real Estate Agency.</h1>
+            <p>Browse our latest properties for sale and rent, and contact our brokers for more information!</p>
         </section>
         <section>
             {% if properties %}
@@ -25,7 +24,7 @@
                     {% endfor %}
                 </div>
             {% else %}
-                <h2>Няма имоти</h2>
+                <h2>No properties found</h2>
             {% endif %}
         </section>
     </main>

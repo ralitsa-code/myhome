@@ -2,7 +2,7 @@
 
 
 {% block title %}
-    Създай град | My Home
+    Create City | My Home
 {% endblock %}
 
 {% block extra_css %}
@@ -15,7 +15,7 @@
         <section class="feature-form">
             <div>
                 <p>
-                    Добави нов град в празното поле и натисни бутона Запази
+                    Enter the new city in the field and click Save.
                 </p>
             </div>
             <form method="post">
@@ -25,10 +25,10 @@
                     {{ form.name.errors }}
                 </div>
                 <button type="submit" class="button">
-                    Запази
+                    Save
                 </button>
                 <a href="{% url 'cities-list' %}" class="cancel-button">
-                    Откажи
+                    Cancel
                 </a>
             </form>
         </section>

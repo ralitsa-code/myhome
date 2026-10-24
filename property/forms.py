@@ -11,19 +11,19 @@ class PropertyForm(forms.ModelForm):
         queryset=Feature.objects.all(),
         widget=forms.CheckboxSelectMultiple,
         required=False,
-        label="Характеристики",
+        label="Features",
 
     )
     bedrooms = forms.IntegerField(
         min_value=0,
         required=False,
-        error_messages={"min_value":"! Броят на спалните трябва да е минимум 0."}
+        error_messages={"min_value":"! The number of bedrooms must be at least 0."}
     )
 
     bathrooms = forms.IntegerField(
         min_value=0,
         required=False,
-        error_messages={"min_value":"! Броят на баните трябва да е минимум 0."}
+        error_messages={"min_value":"! The number of bathrooms must be at least 0."}
     )
 
     def clean(self):
@@ -33,7 +33,7 @@ class PropertyForm(forms.ModelForm):
         area = cleaned_data.get("area")
         if price is not None and area is not None:
             if price < area * PRICE_PER_SQUARE:
-                raise forms.ValidationError("! Цената е прекалено ниска, спрямо площта.")
+                raise forms.ValidationError("! The price is too low for the property area.")
         return cleaned_data
 
     class Meta:

@@ -2,7 +2,7 @@
 
 
 {% block title %}
-    Редактирай имот | My Home
+    Edit Property | My Home
 {% endblock %}
 
 {% block extra_css %}
@@ -16,7 +16,7 @@
         <section>
             <div>
                 <p>
-                    Редактирай данните и натисни бутона Запази
+                    Edit the details and click Save.
                 </p>
             </div>
             <form method="post" novalidate enctype="multipart/form-data">
@@ -92,13 +92,13 @@
                 <div class="form-field ">
                     {{ form.main_image.label_tag }}
                     {% if property.main_image %}
-                        <img class="picture" alt="Снимка на имот" src="{{ property.main_image.url }}">
+                        <img class="picture" alt="Property image" src="{{ property.main_image.url }}">
                     {% endif %}
                     {{ form.main_image }}
                     {{ form.main_image.errors }}
                 </div>
-                <button type="submit" class="button">Запази</button>
-                <a href="{% url 'properties-list' %}" class="delete-button">Откажи</a>
+                <button type="submit" class="button">Save</button>
+                <a href="{% url 'properties-list' %}" class="delete-button">Cancel</a>
             </form>
         </section>
     </main>
