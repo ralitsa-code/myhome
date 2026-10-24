@@ -1,38 +1,24 @@
-# My Home
+# My Home — Real Estate Agency
 
-## Project Overview
+## Overview
 
-**My Home** is a Django web application for a real estate agency. It provides a web interface for managing property listings and the related information needed by a real estate business.
+My Home is a Django web application for a real estate agency. It allows visitors to browse property listings, search for properties, and view information about properties and brokers.
 
-## Features
-
-- Create and manage brokers.
-- Manage cities and their neighbourhoods.
-- Manage property features.
-- Create, view, and edit property listings.
-- Activate and deactivate property listings.
-- Search for properties by city.
-- Validate uploaded images by file type and file size.
-- Validate property prices based on property area.
+The application is built with Django and uses SQLite as its default database.
 
 ## Technologies
 
 - Python
 - Django
-- HTML5
-- CSS3
-- Pillow
-- SQLite or PostgreSQL
+- SQLite
+- HTML and CSS
+- Pillow for image handling
+- python-dotenv for environment variable loading
 
-## Project Structure
+## Requirements
 
-The project is organized into the following Django applications:
-
-- `broker` — broker information and contact details.
-- `city` — city management.
-- `neighbourhood` — neighbourhoods associated with cities.
-- `property` — property listings and their details.
-- `feature` — property features.
+- Python compatible with the Django version specified in `requirements.txt`
+- pip
 
 ## Installation and Setup
 
@@ -43,28 +29,45 @@ git clone https://github.com/ralitsa-code/myhome.git
 cd myhome
 ```
 
-### 2. Create and activate a virtual environment
+### 2. Create a virtual environment
 
-On Windows:
+```bash
+python -m venv .venv
+```
+
+Activate it on Windows:
 
 ```powershell
-python -m venv .venv
 .venv\Scripts\Activate.ps1
 ```
 
-### 3. Install the dependencies
+On macOS or Linux:
 
 ```bash
-pip install -r requirements.txt
+source .venv/bin/activate
 ```
 
-### 4. Configure environment variables
+### 3. Install dependencies
 
-Create a `.env` file in the project root directory, alongside `manage.py`.
+```bash
+python -m pip install -r requirements.txt
+```
 
-Use the `.env.example` file as a reference and configure the variables required by the project.
+### 4. Environment variables (optional for local development)
 
-Do not commit real passwords or secret keys to version control.
+The project loads environment variables from a `.env` file when one is present.
+
+For the default local SQLite configuration, a `.env` file is not required. The application uses fallback values for `SECRET_KEY` and `ALLOWED_HOSTS`, and `DEBUG` defaults to `False` when the environment variable is not set.
+
+For local development, you may create a `.env` file in the project root:
+
+```dotenv
+SECRET_KEY=replace-with-a-local-development-key
+DEBUG=True
+ALLOWED_HOSTS=localhost,127.0.0.1
+```
+
+Keep `.env` out of version control. Do not use the development fallback secret key in production.
 
 ### 5. Apply database migrations
 
@@ -72,35 +75,34 @@ Do not commit real passwords or secret keys to version control.
 python manage.py migrate
 ```
 
+The project uses SQLite by default. Django creates the database file when migrations are applied.
+
 ### 6. Start the development server
 
 ```bash
 python manage.py runserver
 ```
 
-Open the local development address shown in the terminal in your browser.
+Open the following address in your browser:
 
-## Database Configuration
+http://127.0.0.1:8000/
 
-The project can be tested with SQLite for local development. PostgreSQL can also be used by configuring the database connection variables in the `.env` file.
+## Static and Media Files
 
-Make sure the selected database configuration matches the settings in `settings.py`.
+- Static files, including CSS, are stored in the `static/` directory.
+- Uploaded files, including property and broker images, are stored under `media/`.
+- Django uses `STATIC_URL`, `MEDIA_URL`, and `MEDIA_ROOT` to configure these files.
 
-## Environment Variables
+## Project Applications
 
-The `.env.example` file documents the environment variables used by the project, including:
+The project includes the following Django applications:
 
-- `SECRET_KEY` — Django secret key.
-- `DEBUG` — enables or disables debug mode.
-- `ALLOWED_HOSTS` — allowed host names.
-- `DB_NAME` — database name.
-- `DB_USER` — database user.
-- `DB_PASSWORD` — database password.
-- `DB_HOST` — database host.
-- `DB_PORT` — database port.
-
-Use appropriate values for your local environment. Do not publish sensitive credentials.
+- `broker` — broker-related functionality.
+- `city` — city-related functionality.
+- `neighbourhood` — neighbourhood-related functionality.
+- `property` — property listings and related functionality.
+- `feature` — property features.
 
 ## Notes
 
-This project was developed as part of a Django learning project and demonstrates Django models, forms, views, templates, validation, and database integration.
+This project is configured for local development. Before deploying it to production, review Django's security settings, use a secure secret key, configure allowed hosts, and configure static and media file serving appropriately.
