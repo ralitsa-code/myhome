@@ -45,8 +45,21 @@ class PropertyForm(forms.ModelForm):
 
         widgets = {
             "main_image": FileInput(),
-
+            'address': forms.TextInput(
+                attrs={'placeholder': "For example Geo Milev str 22"}
+            ),
+            'area': forms.NumberInput(
+                attrs={'placeholder': "Area in square meters"}
+            ),
+            'price': forms.NumberInput(
+                attrs={'placeholder': "Price in euros"}
+            ),
+            'description': forms.Textarea(
+                attrs={'placeholder': "Describe the property's condition"}
+            ),
+          
         }
+
 
 class DeletePropertyForm(DisabledFormMixin, PropertyForm):
     ...

@@ -1,0 +1,18 @@
+<form method="get" class="property-sort">
+    <input type="hidden" name="search" value="{{ search }}">
+    <input type="hidden" name="status" value="{{ status }}">
+
+    <label for="sort">Sort by price:</label>
+
+    <select name="sort" id="sort" onchange="this.form.submit()">
+        <option value="" {% if not sort_by %}selected{% endif %}>
+            Default order
+        </option>
+        <option value="price_asc" {% if sort_by == 'price_asc' %}selected{% endif %}>
+            Price: low to high
+        </option>
+        <option value="price_desc" {% if sort_by == 'price_desc' %}selected{% endif %}>
+            Price: high to low
+        </option>
+    </select>
+</form>

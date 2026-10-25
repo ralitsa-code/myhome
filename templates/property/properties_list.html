@@ -15,10 +15,12 @@
         <div class="page-header">
             <div class="buttons">
                 <a class="action-button" href="{% url 'create-property' %}">Add Property</a>
-                
             </div>
-            {% include 'property/property_search.html' %}
-            {% include 'property/property_status_filter.html' %}
+            <div class="property-filters">
+                {% include 'property/property_search.html' %}
+                {% include 'property/property_status_filter.html' %}
+                {% include 'property/property_sort.html' %}
+            </div>
         </div>
         {% if properties %}
             <div class="properties-container">

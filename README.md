@@ -1,19 +1,20 @@
 # My Home — Real Estate Agency
 
-## Overview
+## About the Project
 
-My Home is a Django web application for a real estate agency. It allows visitors to browse property listings, search for properties, and view information about properties and brokers.
+My Home is an educational web application developed as part of my software development training. The project simulates a real estate agency website where users can browse property listings, search for properties, and view information about properties and brokers.
 
-The application is built with Django and uses SQLite as its default database.
+This project is a work in progress. Its features are implemented for learning and practice, and some functionality, validation, and user interface details may be incomplete or may need further improvement. The application is not intended to be a fully finished commercial product.
 
 ## Technologies
 
 - Python
 - Django
 - SQLite
-- HTML and CSS
-- Pillow for image handling
-- python-dotenv for environment variable loading
+- HTML
+- CSS
+- Pillow
+- python-dotenv
 
 ## Requirements
 
@@ -53,7 +54,7 @@ source .venv/bin/activate
 python -m pip install -r requirements.txt
 ```
 
-### 4. Environment variables (optional for local development)
+### 4. Configure environment variables (optional for local development)
 
 The project loads environment variables from a `.env` file when one is present.
 
@@ -83,19 +84,11 @@ The project uses SQLite by default. Django creates the database file when migrat
 python manage.py runserver
 ```
 
-Open the following address in your browser:
+Open the application in your browser:
 
 http://127.0.0.1:8000/
 
-## Static and Media Files
-
-- Static files, including CSS, are stored in the `static/` directory.
-- Uploaded files, including property and broker images, are stored under `media/`.
-- Django uses `STATIC_URL`, `MEDIA_URL`, and `MEDIA_ROOT` to configure these files.
-
 ## Project Applications
-
-The project includes the following Django applications:
 
 - `broker` — broker-related functionality.
 - `city` — city-related functionality.
@@ -103,6 +96,16 @@ The project includes the following Django applications:
 - `property` — property listings and related functionality.
 - `feature` — property features.
 
-## Notes
+## Static and Media Files
 
-This project is configured for local development. Before deploying it to production, review Django's security settings, use a secure secret key, configure allowed hosts, and configure static and media file serving appropriately.
+- Static files, including CSS, are stored in the `static/` directory.
+- Uploaded files, including property and broker images, are stored under `media/`.
+- Django uses `STATIC_URL`, `MEDIA_URL`, and `MEDIA_ROOT` to configure these files.
+
+## Project Status
+
+This is a learning project, and development is ongoing. Features may be refined, bugs may still exist, and the code and user interface may change as I continue to practise and improve my Django skills.
+
+## Disclaimer
+
+This application is intended for educational purposes only. It has not been developed or tested as a production-ready real estate platform.

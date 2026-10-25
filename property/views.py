@@ -1,5 +1,4 @@
-from django.core import paginator
-from django.core.paginator import Paginator
+
 from django.shortcuts import render, get_object_or_404, redirect
 from property.forms import PropertyForm, DeletePropertyForm
 from property.models import Property
@@ -9,12 +8,19 @@ def properties_list(request):
     search = request.GET.get('search', '').strip()
     status = request.GET.get('status', 'active')
 
+    sort_by = request.GET.get('sort', '')
+
     properties = Property.objects.all()
 
     if status == 'active':
         properties = properties.filter(active=True)
     elif status == 'inactive':
         properties = properties.filter(active=False)
+
+    if sort_by == 'price_asc':
+        properties = properties.order_by('price')
+    elif sort_by == 'price_desc':
+        properties = properties.order_by('-price')
 
     if search:
         properties = properties.filter(
@@ -25,10 +31,11 @@ def properties_list(request):
         'property/properties_list.html',
         {'properties': properties,
          'search': search,
-         'status': status}
+         'status': status,
+         'sort_by': sort_by,
+         }
     )
 
-    paginator
 
 
 def property_details(request, property_id):
